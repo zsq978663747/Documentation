@@ -161,7 +161,7 @@ The annual increase amount of issuance is 2%, among which the node reward is 1%.
 
 ## Developer Rewards 
 
-An additional 0.8% issuance will be given to the BOS eco-contribution code developer. Fifty candidates will be nominated by the community. Top 50 BPs vote 40 winners to get the awards: the top 10 share 40%, people ranked 11 to 20 share 30%, the last 20 share the remaining 30% evenly. The reward happens once every 3 months and each reward will be carried out with a one-week publicity. It will be re-evaluated if there is a reasonable objection. And each reward list will be recorded on chain.
+An additional 0.8% issuance will be given to the BOS eco-contribution code developer. Fifty candidates will be nominated by the community. Top 50 BPs vote 40 winners to get the awards: the top 10 share 40%, people ranked 11 to 20 share 30%, the last 20 share the remaining 30% evenly. The reward happens once every 3 months and each reward will be carried out with a one-week publicity. It will be re-evaluated if there is a reasonable objection. And each reward list will be recorded on chain.  
 As BOS continues to develop, developer rewards will be appropriately adjusted to allow the community to provide more momentum for the evolution of BOS. 
 
 ## Governance Model 
