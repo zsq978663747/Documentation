@@ -29,7 +29,7 @@ The IBC scheme designed an Inter-Chain Protocol (ICP). ICP uses a cross-chain me
 
 The ICP channel implements a distributed vector clock between two blockchains to add their processing message constraints, ensuring that each transaction between the chains has a clear causal relationship and time sequence, so that there will be no ambiguity due to network delays or inter-chain consensus. 
 
-![IMG](./vector-clock.png) 
+![IMG](./res/vector-clock.png) 
 
 When a particular ICP packet is submitted to Chain B, Chain B receives the packet and creates an asset certificate, and is required to send a confirmation receipt to Chain A to prove that the asset certificate has been generated on Chain B. 
 
@@ -58,7 +58,7 @@ The status of the BOS PBFT is described as follows:
 -  **View** change means that a producing node loses the trust of other nodes for various reasons, the process of the whole system changes the producing node. Since EOSIO adopts the Pipelined BFT algorithm, all BPs are determined in advance by voting. Within one BP schedule, the order of the whole system is completely unchanged. When the network is in good condition and the producing node has not changed, it can be considered that there is no view change state. After the introduction of PBFT, in order to avoid the fork which may cause the consensus cannot advance, the view change mechanism is introduced. All unconsented information is discarded and consensus procedures are continually tried until the consensus is made.
 -  **Checkpoint**, which refers to the recording of consensus evidence at a block height to provide a proof of security. This checkpoint is considered stable when there are enough producing nodes with the same checkpoint. The generation of checkpoint consists of two major categories: one is fixed k block generation, and the other is a special point that needs to provide security proof, such as a block in which the block BP schedule changes.
 
-![IMG](./bospbft.png) 
+![IMG](./res/bospbft.png) 
 
 Through observation of the existing EOS main network, the network delay between the global nodes is mostly within 1 second. According to the consensus algorithm of BOS PBFT, 3 seconds to achieved unchangeable in most scenarios (pre-prepare, prepare, commit). Shortening the trusted time of a transaction from minutes to seconds will allow many scenarios to be implemented on the BOS chain. 
 
