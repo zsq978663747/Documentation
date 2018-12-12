@@ -9,7 +9,7 @@
 
 BOSCore bases on EOSIO, so you can also referer EOS.IO Technical White Paper:
 
-- [English](TechnicalWhitePaper.md)
-- [Russian](ru-RU/TechnicalWhitePaper.md) translated by [@blockchained](https://steemit.com/@blockchained)
-- [Chinese](zh-CN/TechnicalWhitePaper.md) translated by [@dayzh](https://steemit.com/@dayzh)
-- [Korean](ko-KR/TechnicalWhitePaper.md) translated by [@clayop](https://steemit.com/@clayop)
+- [English](https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md)
+- [Russian](https://github.com/EOSIO/Documentation/blob/master/ru-RU/TechnicalWhitePaper.md) translated by [@blockchained](https://steemit.com/@blockchained)
+- [Chinese](https://github.com/EOSIO/Documentation/blob/master/zh-CN/TechnicalWhitePaper.md) translated by [@dayzh](https://steemit.com/@dayzh)
+- [Korean](https://github.com/EOSIO/Documentation/blob/master/ko-KR/TechnicalWhitePaper.md) translated by [@clayop](https://steemit.com/@clayop)
