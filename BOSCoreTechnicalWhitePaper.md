@@ -21,21 +21,6 @@ The codes of the BOS chain are fully contributed and maintained by the community
 In order to encourage the development of DApp in BOS, the BOS Foundation will provide Token replacement of low-cost resource mortgage services for DApp in BOS, reduce the operating costs of DApp in the early stage; in addition, it will also regularly provide BOS incentives to developers who contribute on a regular basis in order to establish a mutually reinforcing community development trend. 
 
 
-# Interchain Communication 
-
-The new blockchain architecture design announced in the EOSIO white paper is able to scale up vertically and horizontally to reach a million-level TPS. Vertical expansion, including continually upgrading hardware performance, introduces a multi-threaded execution model, and JIT-enabled WebAssembly virtual machines, can multiply EOS's TPS. But only through horizontal expansion, which uses the multi-chain parallel mechanism, will EOSIO ecological chain be able to achieve the goal of millions TPS. BOS natively integrates a cross-chain solution based on the Merkle Proofs for Light Client Validation (LCV) mechanism developed by community members[1]. 
-
-The IBC scheme designed an Inter-Chain Protocol (ICP). ICP uses a cross-chain messaging model and does not make any assumptions about network synchronization. The protocol needs to be able to construct cross-chain transactions that repeaters can relay them from one blockchain to another. Chain A and Chain B need to independently identify new blocks, and protocol packets from one chain to another can be arbitrarily delayed or checked. The speed at which protocol packets are transmitted and acknowledged is limited only by the speed of each blockchain itself. The ICP protocol defined here does not sense the payload. The receiver of the protocol packet on chain B decides how to act based on the received information and can add its own application logic to determine which state transactions to change based on the data contained in the protocol packet. 
-
-The ICP channel implements a distributed vector clock between two blockchains to add their processing message constraints, ensuring that each transaction between the chains has a clear causal relationship and time sequence, so that there will be no ambiguity due to network delays or inter-chain consensus. 
-
-![IMG](./res/vector-clock.png) 
-
-When a particular ICP packet is submitted to Chain B, Chain B receives the packet and creates an asset certificate, and is required to send a confirmation receipt to Chain A to prove that the asset certificate has been generated on Chain B. 
-
-BOS provides a redemption channel with the EOS main chain based on the IBC scheme. EOS can be easily circulated between the BOS side chain and the EOS main chain, including other high-quality digital certificates on the EOS; similarly, BOS will advance to establish circulation channels with other EOSIO-based sidechains. And the entire EOSIO ecosystem begins to move into an ecological network. BOS will serve as a core circulation link to accelerate the development and evolution of the entire EOSIO ecosystem. 
-
-
 # Consensus Algorithm 
 
 EOSIO uses a pipelined Byzantine Fault Tolerance system. For a block, Propose, Pre-Commit, Commit, Finalize [2] are required stages. The last unchangeable block will be marked by Last Irreversible Block (LIB). A transaction basically takes about 3 minutes (the theoretical minimum is 325 block time, that is, 162.5 seconds) to enter LIB, although the transaction reliability time is much higher than other digital certificates such as BTC and ETH. However, there are still many limitations for many application scenarios. For example, the payment scenario, because it is not immediately determined whether the transaction is successful at the end, it takes a period of time to complete the transaction of the commodity, which adds a lot of restrictions. 
@@ -61,6 +46,21 @@ The status of the BOS PBFT is described as follows:
 ![IMG](./res/bospbft.png) 
 
 Through observation of the existing EOS main network, the network delay between the global nodes is mostly within 1 second. According to the consensus algorithm of BOS PBFT, 3 seconds to achieved unchangeable in most scenarios (pre-prepare, prepare, commit). Shortening the trusted time of a transaction from minutes to seconds will allow many scenarios to be implemented on the BOS chain. 
+
+# Interchain Communication 
+
+In the EOSIO technology white paper, interchain communication is used as a solution for high-concurrency and to construct flow channels between multiple chains. The overall ecological carrying capacity of EOSIO is increased by horizontal expansion. The essential issue of cross-chain communication is to justify the credibility of transactions between various chains. Heterogeneous blockchain systems (such as EOS, ETH) have great differences in block generation speed, internal data structure, and consensus mechanism. Therefore, the implementation of heterogeneous decentralized cross-chain is relatively difficult. It is more practical to verify transactions between different chains based on EOSIO. 
+
+The basis for decentralized cross-chain communication is Light Weight Client and SPV/Simple Payment Verification. The Light Weight Client is a chain consisting of block heads, excluding the block bodies, so the Light Weight Client only takes up very little space. the SPV technology uses the merkle path to prove whether a transaction exists in a certain block. 
+
+The advantages of BOSCore cross-chain scheme are as follows: 
+1. Completely Decentration. The Light Weight Client is implemented in the smart contract. When the correct starting block information is initialized, the contract can fully verify the validity of all subsequent blocks without relying on the trust of the relay or contract external information.
+2. Light Weight. The Light Weight Client does not need to continuously synchronize all the block heads of the original chain, and only needs to synchronize a part of the segment of the blockchain to obtain a trusted block for verifying the transaction.
+3. Fast Cross-chain Transactions. A cross-chain transaction takes less than 3 minutes from the generation to the conduction of corresponding transaction on the target chain.
+4. Parallel Cross-chain Transactions. Different cross-chain transactions do not affect each other and can be executed in parallel, thus supporting a large number of concurrent transactions.
+5. Safe. Due to the producer signature verification and strict logic check, the correctness of the Light Weight Client itself can be guaranteed and it cannot be maliciously attacked, so the authenticity of the transaction can be verified safely.
+
+BOS provides a redemption channel with the EOS main chain based on the IBC scheme. EOS can be easily circulated between the BOS side chain and the EOS main chain, including other high-quality digital certificates on the EOS; similarly, BOS will advance to establish circulation channels with other EOSIO-based sidechains. And the entire EOSIO ecosystem begins to move into an ecological network. BOS will serve as a core circulation link to accelerate the development and evolution of the entire EOSIO ecosystem. 
 
 
 # Pegged Coin 
@@ -155,9 +155,9 @@ BOS enhances the system contract and provides an interface that can set maximum 
 
 ## Issuance Method 
 
-The initial circulation of BOS is 1 billion. 100 million is managed by the BOS Foundation and will be unlocked in 10 years. In addition, the EOS main network snapshot will be taken on December 10th. And at that time, a 1:1 EBOS candy airdrop will be conducted. EBOS can be converted to BOS in a ratio of 100:1; the remaining 900 million BOS will be exchanged in batches with BTC, ETH, EOS on the BOS chain. 
+The initial supply of BOS is 1 billion. 100 million will be managed by the BOS Foundation and will be unlocked in 10 years. In addition,1 billion for ecological incentives (10 million direct airdrops on EOS mainnet accounts, 20 million as excellent node and DApp team rewards, 70 million for DApp user incentives), and the remaining 800 million BOS will be exchanges in batches on the mainnet BOS. 
 
-The annual increase amount of issuance is 2%, among which the node reward is 1%. This part remains unchanged with EOSIO; 0.8% for developer rewards and 0.2% for governance incentives. 
+The annual inflation is 2%, among which the BP rewards is 1%, 0.8% for developer rewards and 0.2% for governance incentives. 
 
 ## Developer Rewards 
 
