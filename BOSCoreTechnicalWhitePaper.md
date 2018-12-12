@@ -23,11 +23,11 @@ In order to encourage the development of DApp in BOS, the BOS Foundation will pr
 
 # Consensus Algorithm 
 
-EOSIO uses a pipelined Byzantine Fault Tolerance system. For a block, Propose, Pre-Commit, Commit, Finalize [2] are required stages. The last unchangeable block will be marked by Last Irreversible Block (LIB). A transaction basically takes about 3 minutes (the theoretical minimum is 325 block time, that is, 162.5 seconds) to enter LIB, although the transaction reliability time is much higher than other digital certificates such as BTC and ETH. However, there are still many limitations for many application scenarios. For example, the payment scenario, because it is not immediately determined whether the transaction is successful at the end, it takes a period of time to complete the transaction of the commodity, which adds a lot of restrictions. 
+EOSIO uses a pipelined Byzantine Fault Tolerance system. For a block, Propose, Pre-Commit, Commit, Finalize [1] are required stages. The last unchangeable block will be marked by Last Irreversible Block (LIB). A transaction basically takes about 3 minutes (the theoretical minimum is 325 block time, that is, 162.5 seconds) to enter LIB, although the transaction reliability time is much higher than other digital certificates such as BTC and ETH. However, there are still many limitations for many application scenarios. For example, the payment scenario, because it is not immediately determined whether the transaction is successful at the end, it takes a period of time to complete the transaction of the commodity, which adds a lot of restrictions. 
 
 The reason for the long confirmation time for transactions is in the DPOS BFT consensus algorithm, the acknowledgment information after all blocks are synchronized will only be broadcast when it is the turn of the node. For example, in the case where BP1 is to produce block (the block is BLKn) and BP1~BP21 take turns to produce the block, BP2~BP21 will receive and verify BLKn one by one. However, all BPs can only wait until their turn to produce block then they can send a confirmation message about BLKn. 
 
-After analyzing the problem of the EOSIO consensus algorithm, in order to shorten the time when a transaction becomes unchangeable, BOS will use PBFT (Practical Byzantine Fault Tolerance [3]) instead of Pipelined BFT. In this way, BP is able to confirm the blocks currently. The confirmation of block in real time enables the entire system eventually to reach a near real-time consensus speed. 
+After analyzing the problem of the EOSIO consensus algorithm, in order to shorten the time when a transaction becomes unchangeable, BOS will use PBFT (Practical Byzantine Fault Tolerance [2]) instead of Pipelined BFT. In this way, BP is able to confirm the blocks currently. The confirmation of block in real time enables the entire system eventually to reach a near real-time consensus speed. 
 
 The BOS consensus algorithm is based on the PBFT theory, combined with the EOSIO code to improve, under the premise of guaranteeing Byzantine fault tolerance, the following changes will be made: 
 1. The mechanism of the Pipelined BFT's BP round outflow block is retained, and the synchronous clock and the block orders are strongly constrained like EOS.
@@ -51,7 +51,7 @@ Through observation of the existing EOS main network, the network delay between 
 
 In the EOSIO technology white paper, interchain communication is used as a solution for high-concurrency and to construct flow channels between multiple chains. The overall ecological carrying capacity of EOSIO is increased by horizontal expansion. The essential issue of cross-chain communication is to justify the credibility of transactions between various chains. Heterogeneous blockchain systems (such as EOS, ETH) have great differences in block generation speed, internal data structure, and consensus mechanism. Therefore, the implementation of heterogeneous decentralized cross-chain is relatively difficult. It is more practical to verify transactions between different chains based on EOSIO. 
 
-The basis for decentralized cross-chain communication is Light Weight Client and SPV/Simple Payment Verification. The Light Weight Client is a chain consisting of block heads, excluding the block bodies, so the Light Weight Client only takes up very little space. the SPV technology uses the merkle path to prove whether a transaction exists in a certain block. 
+The basis for decentralized cross-chain communication is Light Weight Client and SPV/Simple Payment Verification. The Light Weight Client is a chain consisting of block heads, excluding the block bodies, so the Light Weight Client only takes up very little space. the SPV technology uses the merkle path to prove whether a transaction exists in a certain block [3]. 
 
 The advantages of BOSCore cross-chain scheme are as follows: 
 1. Completely Decentration. The Light Weight Client is implemented in the smart contract. When the correct starting block information is initialized, the contract can fully verify the validity of all subsequent blocks without relying on the trust of the relay or contract external information.
@@ -197,8 +197,7 @@ The goal of BOS is to build an EOSIO ecosystem that supports more DApp and solve
 
 
 # References 
-
-[1] [ CoChain ](https://eoscochain.io/resources/whitepaper) 
-[2] [ DPOS BFT— Pipelined Byzantine Fault Tolerance ](https://medium.com/eosio/dpos-bft-pipelined-byzantine-fault-tolerance-8a0634a270ba)  
-[3] [ Practical Byzantine Fault Tolerance ](http://pmg.csail.mit.edu/papers/osdi99.pdf)  
+[1] [ DPOS BFT— Pipelined Byzantine Fault Tolerance ](https://medium.com/eosio/dpos-bft-pipelined-byzantine-fault-tolerance-8a0634a270ba)  
+[2] [ Practical Byzantine Fault Tolerance ](http://pmg.csail.mit.edu/papers/osdi99.pdf)  
+[3] [ Chain Interoperability ](https://static1.squarespace.com/static/55f73743e4b051cfcc0b02cf/t/5886800ecd0f68de303349b1/1485209617040/Chain+Interoperability.pdf) 
 

@@ -22,11 +22,11 @@ BOS链的代码完全由社区贡献并维护，每个生态参与者都可以�
 
 # 共识机制 
 
-EOSIO采用的是基于流水线的拜占庭容错机制 (Pipelined Byzantine Fault Tolerance)，对于一个Block需要经过Propose、Pre-Commit、Commit、Finalize [2] 几个步骤，最后不可更改的块范围由Last Irreversible Block (LIB) 标明；一笔交易基本上需要约3分钟 (理论最低为325个出块时间，即162.5秒) 才能进入LIB，虽然相比BTC、ETH等其他数字通证的交易可靠时间有很大提高，但是对于很多应用场景来说还是有很大限制。比如支付场景，由于不能立即确定该笔交易最后是否成功，需要等待一段的时间才可完成商品的交易，这就增加了很多限制。 
+EOSIO采用的是基于流水线的拜占庭容错机制 (Pipelined Byzantine Fault Tolerance)，对于一个Block需要经过Propose、Pre-Commit、Commit、Finalize [1] 几个步骤，最后不可更改的块范围由Last Irreversible Block (LIB) 标明；一笔交易基本上需要约3分钟 (理论最低为325个出块时间，即162.5秒) 才能进入LIB，虽然相比BTC、ETH等其他数字通证的交易可靠时间有很大提高，但是对于很多应用场景来说还是有很大限制。比如支付场景，由于不能立即确定该笔交易最后是否成功，需要等待一段的时间才可完成商品的交易，这就增加了很多限制。 
 
 造成交易需要较长确认时间的原因是在DPOS BFT共识算法中，所有块同步后的确认信息都只有轮到该节点出块的时候才会被广播出去。举个例子来说，在BP1出块(所出块为BLKn)，BP1～BP21轮流出块的情况下，BP2～BP21会陆续收到并验证BLKn，但所有BP只能等到自己出块的时候才能发出对BLKn的确认信息。 
 
-在分析过EOSIO共识算法的问题以后，为了缩短一笔交易变成不可更改状态的时间，BOS将采用PBFT (Practical Byzantine Fault Tolerance[3]) 来替代Pipelined BFT，让BP之间实时地对当前正在生产的区块进行确认，能够使整个系统最终达到接近实时的共识速度。 
+在分析过EOSIO共识算法的问题以后，为了缩短一笔交易变成不可更改状态的时间，BOS将采用PBFT (Practical Byzantine Fault Tolerance[2]) 来替代Pipelined BFT，让BP之间实时地对当前正在生产的区块进行确认，能够使整个系统最终达到接近实时的共识速度。 
 
 BOS的共识算法是在 PBFT 理论基础上，结合EOSIO代码进行的改进，在保证实现拜占庭容错的前提下，会进行以下部分的改动： 
 1. 保留Pipelined BFT的BP 轮流出块的机制，并且和EOS一样对同步时钟和出块顺序进行强约束
@@ -51,7 +51,7 @@ BOS PBFT中状态描述如下：
 
 EOSIO技术白皮书中把链间通讯作为实现高并发的解决方案，以链间通讯技术构建多条链间的流转通道，通过水平拓展的方式来增加EOSIO整个生态的承载能力。跨链通讯的本质问题是解决对各个链之间交易可信度的证明。异构的区块链系统（例如EOS、ETH）因为区块生成速度、内部数据结构、共识机制等都有很大差异，因此异构去中心化跨链的实现难度相对较高，相比而言而对于以EOSIO为基础的不同链之间的交易验证更具有实际意义。 
 
-去中心化跨链通信的基础是轻客户端（Light Weight Client）和交易验证技术（SPV/Simple Payment Verification）。轻客户端是由区块头构成的一条链，不包括区块体，所以轻客户端只占用很小的空间；SPV技术使用merkle路径来证明一个交易是否存在于某个区块中。
+去中心化跨链通信的基础是轻客户端（Light Weight Client）和交易验证技术（SPV/Simple Payment Verification）。轻客户端是由区块头构成的一条链，不包括区块体，所以轻客户端只占用很小的空间；SPV技术使用merkle路径来证明一个交易是否存在于某个区块中[3]。
 
 BOSCore采用的跨链方案优势有以下几点： 
 1. 完全去中心。轻客户端在智能合约中实现，当初始化了正确的起始区块信息，合约就可以完全自主验证后续所有区块的有效性，无需依赖对中继或合约外部信息的信任。
@@ -197,9 +197,9 @@ BOS的目标是建立起一条支持更多DApp，能把更多现实需求和区�
 
 # 参考 
 
-[1] [ CoChain ](https://eoscochain.io/resources/whitepaper) 
-[2] [ DPOS BFT— Pipelined Byzantine Fault Tolerance ](https://medium.com/eosio/dpos-bft-pipelined-byzantine-fault-tolerance-8a0634a270ba)  
-[3] [ Practical Byzantine Fault Tolerance ](http://pmg.csail.mit.edu/papers/osdi99.pdf)  
+[1] [ DPOS BFT— Pipelined Byzantine Fault Tolerance ](https://medium.com/eosio/dpos-bft-pipelined-byzantine-fault-tolerance-8a0634a270ba)  
+[2] [ Practical Byzantine Fault Tolerance ](http://pmg.csail.mit.edu/papers/osdi99.pdf)  
+[3] [ Chain Interoperability ](https://static1.squarespace.com/static/55f73743e4b051cfcc0b02cf/t/5886800ecd0f68de303349b1/1485209617040/Chain+Interoperability.pdf) 
 
 
 
