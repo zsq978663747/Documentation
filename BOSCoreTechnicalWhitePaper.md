@@ -144,12 +144,6 @@ BOS has been enhanced at this point, and the configuration item can decide wheth
 
 In order to reduce risks, a node only obtains connectable node information from existing nodes in the configuration file, and does not automatically create connections without restriction. 
 
-### Payment Limit 
-
-BOS fully considers the actual usage scenarios for ordinary users. For DApp or Scatter plug-ins, you need to import the active key of the account. This high-privilege private key can control all the balances of the account, which will be high-security risks for users.  
-
-BOS enhances the system contract and provides an interface that can set maximum limit for the active key each day or each deal. Once the user has set a limit, the time they encounter a malicious DApp, they can minimize their losses. The active key user with the limit set can be relatively safe to import into the DApp, and then get a smoother payment experience, avoiding frequent calls to the wallet application for authorization. 
-
 
 # Ecological Model 
 
