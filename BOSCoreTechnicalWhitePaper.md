@@ -1,10 +1,63 @@
-# BOSCore Technical White Paper
+# NOTICE AND DISCLAIMER
+--- 
+PLEASE READ THE ENTIRETY OF THIS “NOTICE AND DISCLAIMER” SECTION CAREFULLY. NOTHING HEREIN CONSTITUTES LEGAL, FINANCIAL, BUSINESS OR TAX ADVICE AND YOU SHOULD CONSULT YOUR OWN LEGAL, FINANCIAL, TAX OR OTHER PROFESSIONAL ADVISOR(S) BEFORE ENGAGING IN ANY ACTIVITY IN CONNECTION HEREWITH. NEITHER BOS FOUNDATION LTD. (THE FOUNDATION), ANY OF THE PROJECT TEAM MEMBERS (THE BOS TEAM) WHO HAVE WORKED ON THE BOS NETWORK (AS DEFINED HEREIN) OR PROJECT TO DEVELOP THE BOS NETWORK IN ANY WAY WHATSOEVER, ANY DISTRIBUTOR/VENDOR OF BOS TOKENS (THE DISTRIBUTOR), NOR ANY SERVICE PROVIDER SHALL BE LIABLE FOR ANY KIND OF DIRECT OR INDIRECT DAMAGE OR LOSS WHATSOEVER WHICH YOU MAY SUFFER IN CONNECTION WITH ACCESSING THIS WHITEPAPER, THE WEBSITE AT HTTP://BOS.IO/ (THE WEBSITE) OR ANY OTHER WEBSITES OR MATERIALS PUBLISHED BY THE FOUNDATION.
 
-**Sep. 2018**
+All contributions will be applied towards the advancing, promoting the research, design and development of, and advocacy for an EOSIO ecosystem that supports more DApp and solve real-world problems through the usage of blockchain technology. The Foundation, the Distributor and their various affiliates would develop, manage and operate the BOS Network.
+
+The Whitepaper and the Website are intended for general informational purposes only and does not constitute a prospectus, an offer document, an offer of securities, a solicitation for investment, or any offer to sell any product, item or asset (whether digital or otherwise). The information herein may not be exhaustive and does not imply any element of a contractual relationship. There is no assurance as to the accuracy or completeness of such information and no representation, warranty or undertaking is or purported to be provided as to the accuracy or completeness of such information. Where the Whitepaper or the Website includes information that has been obtained from third party sources, the Foundation, the Distributor, and/or the BOS team have not independently verified the accuracy or completion of such information. Further, you acknowledge that circumstances may change and that the Whitepaper or the Website may become outdated as a result; and neither the Foundation nor the Distributor is under any obligation to update or correct this document in connection therewith.
+Nothing in the Whitepaper or the Website constitutes any offer by the Foundation, the Distributor or the BOS team to sell any BOS (as defined herein) nor shall it or any part of it nor the fact of its presentation form the basis of, or be relied upon in connection with, any contract or investment decision. Nothing contained in the Whitepaper or the Website is or may be relied upon as a promise, representation or undertaking as to the future performance of the BOS Network. The agreement between the Distributor and you, in relation to any sale and purchase of BOS is to be governed by only the separate terms and conditions of such agreement.
+
+By accessing the Whitepaper or the Website (or any part thereof), you represent and warrant to the Foundation, the Distributor, its affiliates, and the BOS team as follows:
+
+- (a)	in any decision to purchase any BOS, you have not relied on any statement set out in the Whitepaper or the Website;
+- (b)	you will and shall at your own expense ensure compliance with all laws, regulatory requirements and restrictions applicable to you (as the case may be);
+- (c)	you acknowledge, understand and agree that BOS may have no value, there is no guarantee or representation of value or liquidity for BOS, and BOS is not for speculative investment;
+- (d)	none of the Foundation, the Distributor, its affiliates, and/or the BOS team members shall be responsible for or liable for the value of BOS, the transferability and/or liquidity of BOS and/or the availability of any market for BOS through third parties or otherwise; and
+- (e)	you acknowledge, understand and agree that you are not eligible to purchase any BOS if you are a citizen, national, resident (tax or otherwise), domiciliary and/or green card holder of a geographic area or country (i) where it is likely that the sale of BOS would be construed as the sale of a security (howsoever named), financial service or investment product and/or (ii) where participation in token sales is prohibited by applicable law, decree, regulation, treaty, or administrative act (including without limitation the United States of America, Canada, New Zealand, People's Republic of China (but not including the special administrative regions of Hong Kong and Macau, and the territory of Taiwan), the Republic of Korea and the Socialist Republic of Vietnam).
+
+The Foundation, the Distributor and the BOS team do not and do not purport to make, and hereby disclaims, all representations, warranties or undertaking to any entity or person (including without limitation warranties as to the accuracy, completeness, timeliness or reliability of the contents of the Whitepaper or the Website, or any other materials published by the Foundation or the Distributor). To the maximum extent permitted by law, the Foundation, the Distributor, their affiliates and service providers shall not be liable for any indirect, special, incidental, consequential or other losses of any kind, in tort, contract or otherwise (including, without limitation, any liability arising from default or negligence on the part of any of them, or any loss of revenue, income or profits, and loss of use or data) arising from the use of the Whitepaper or the Website, or any other materials published, or its contents (including without limitation any errors or omissions) or otherwise arising in connection with the same. Prospective purchasers of BOS should carefully consider and evaluate all risks and uncertainties (including financial and legal risks and uncertainties) associated with the BOS token sale, the Foundation, the Distributor and the BOS team.
+
+The information set out in the Whitepaper and the Website is for community discussion only and is not legally binding. No person is bound to enter into any contract or binding legal commitment in relation to the acquisition of BOS, and no virtual currency or other form of payment is to be accepted on the basis of the Whitepaper or the Website. The agreement for sale and purchase of BOS and/or continued holding of BOS shall be governed by a separate set of Terms and Conditions or Token Purchase Agreement (as the case may be) setting out the terms of such purchase and/or continued holding of BOS (the Terms and Conditions), which shall be separately provided to you or made available on the Website. In the event of any inconsistencies between the Terms and Conditions and the Whitepaper or the Website, the Terms and Conditions shall prevail.
+
+No regulatory authority has examined or approved of any of the information set out in the Whitepaper or the Website. No such action has been or will be taken under the laws, regulatory requirements or rules of any jurisdiction. The publication, distribution or dissemination of the Whitepaper or the Website does not imply that the applicable laws, regulatory requirements or rules have been complied with.
+The information set out herein is only conceptual, and describes the future development goals for the BOS Network to be developed. The Whitepaper or the Website may be amended or replaced from time to time. There are no obligations to update the Whitepaper or the Website, or to provide recipients with access to any information beyond what is provided herein.
+
+All statements contained herein, statements made in press releases or in any place accessible by the public and oral statements that may be made by the Foundation, the Distributor and/or the BOS team may constitute forward-looking statements (including statements regarding intent, belief or current expectations with respect to market conditions, business strategy and plans, financial condition, specific provisions and risk management practices). You are cautioned not to place undue reliance on these forward-looking statements given that these statements involve known and unknown risks, uncertainties and other factors that may cause the actual future results to be materially different from that described by such forward-looking statements, and no independent third party has reviewed the reasonableness of any such statements or assumptions. These forward-looking statements are applicable only as of the date indicted in the Whitepaper, and the Foundation, the Distributor as well as the BOS team expressly disclaims any responsibility (whether express or implied) to release any revisions to these forward-looking statements to reflect events after such date.
+
+The use of any company and/or platform names or trademarks herein (save for those which relate to the Foundation, the Distributor or its affiliates) does not imply any affiliation with, or endorsement by, any third party. References in the Whitepaper or the Website to specific companies and platforms are for illustrative purposes only.
+The Whitepaper and the Website may be translated into a language other than English and in the event of conflict or ambiguity between the English language version and translated versions of the Whitepaper or the Website, the English language versions shall prevail. You acknowledge that you have read and understood the English language version of the Whitepaper and the Website.
+
+No part of the Whitepaper or the Website is to be copied, reproduced, distributed or disseminated in any way without the prior written consent of the Foundation or the Distributor.
+
+- [Background](#background)
+- [Overview](#overview)
+- [Consensus Algorithm](#consensus-algorithm)
+- [Interchain Communication](#interchain-communication)
+- [Pegged Coin](#pegged-coin)
+- [Accounts](#accounts)
+  - [Guaranteed Minimum Provision](#guaranteed-minimum-provision)
+  - [Free Account Creation through Red Packet](#free-account-creation-through-red-packet)
+- [ThunderNode](#thundernode)
+- [Enhanced Usability](#enhanced-usability)
+  - [Safer Random Number Scheme](#safer-random-number-scheme)
+  - [Oracle Machine](#oracle-machine)
+  - [Configurations on Chain](#configurations-on-chain)
+  - [More Plugins](#more-plugins)
+  - [Producing Schedule according to Time Zone](#producing-schedule-according-to-time-zone)
+  - [BOS Toolkit](#bos-toolkit)
+    - [Account Manager](#account-manager)
+  - [P2P Self-Discovery](#p2p-self-discovery)
+- [Ecosystem Model](#ecosystem-model)
+  - [Issuance Method](#issuance-method)
+  - [Developer Incentives](#developer-incentives)
+  - [Governance Model](#governance-model)
+  - [Economic Model](#economic-model)
+- [Conclusion](#conclusion)
+- [References](#references)
 
 # Background 
 
-The emergence of EOS has brought a new paradigm to the blockchain. In just a few months since the main network was launched, the version has undergone dozens of upgrades, stability has been greatly improved, new functions have been gradually developed. The node team is also actively involved in building the EOSIO ecosystem. What is even more exciting is that EOS has attracted more and more development teams. There are already hundreds of DApps running on the EOS main network. market value in circulation far exceeds that of Ethereum, and the space for development is growing wider.
+The emergence of EOS has brought a new paradigm to the blockchain. In just a few months since the main network was launched, the version has undergone dozens of upgrades, stability has been greatly improved, new functions have been gradually developed. The node team is also actively involved in building the EOSIO ecosystem. What is even more exciting is that EOS has attracted more and more development teams. There are already hundreds of DApp running on the EOS main network. market value in circulation far exceeds that of Ethereum, and the space for development is growing wider.
 
 During the gradual development of the EOS main network, the BOS team has found some deviations from prior expectations. As the most competitive third-generation public chain, the BOS team looks forward to seeing more and more applications running on EOS.  Developers will use EOS as their preferred platform for application development. But due to the limitations of the current EOS resource model, higher costs of usage have resulted from the creation of more user accounts and deployment of operating DApps. The key technology IBC required for the realisation of the millions of TPS described in the white paper has not been promoted. The main network has repeatedly experienced situations of insuﬀicient CPU computing resources, which has intensiﬁed the urgency of its demand for cross-chain communication. In addition, due to the Pipeline-DPOS consensus algorithm adopted by EOSIO, a transaction requires nearly three minutes to ensure that it is finalised and immutable. Although performance in this regard is much better in comparison to Bitcoin and Ethereum, it also brings restrictions to many EOS application scenarios. Fast payment mechanisms can only be directed towards small transfers, large transfers require a certain waiting time to ensure that they cannot be changed, which limits the user experience with regards to payment services on the chain   and under the chain.
 
@@ -110,7 +163,7 @@ The Oracle Machine is a concept introduced by the Turing machine model. Due to t
 
 In the face of an untrusted oracle machine, the simple deterministic computing model is obviously powerless. For this reason, the BOS team tries to introduce a system model of the game to solve these problems. In a nutshell, this solution involves not regarding the Oracle machine as the information providing point of the system, but to regard it a participant of the game and the information used to build the game model. And by introducing a penalty mechanism and a multi-round game mechanism to establish a credible commitment, the information selection mechanism of the multi-information point is used to reach the Schelling point, thereby improving the credibility of the information. In addition, by introducing an inspector and through a joint reward and punishment mechanism, the prisoner's dilemma of providing information to the role further ensures credibility. 
 
-Based on the above analysis, the BOS Network will implement a set of oracle mechanism based on the game theory model, broaden the application scenarios that DApps can be involved in, and combine the blockchain technology combined with various scenarios in life. 
+Based on the above analysis, the BOS Network will implement a set of oracle mechanism based on the game theory model, broaden the application scenarios that DApp can be involved in, and combine the blockchain technology combined with various scenarios in life. 
 
 ## Configurations on Chain
 
@@ -140,7 +193,7 @@ EOSIO introduces a flexible account system that allows for relatively complex op
 
 Through the account manager, one can not only set limits for every deal and daily transfers through using the active key of the account. For more advanced owner permissions, the user must not only input the correct password, but also answer the correct question before using or exporting it. It is a rule that is designed to help users understand account permissions and enhance their awareness of security.
 
-### P2P Self-Discovery 
+## P2P Self-Discovery 
 
 In the implementation of EOSIO, the connection with those nodes depends on the static configuration of the configuration file. When a new node joins, only published information can be obtained from other regions, but the published information cannot be ensured to be comprehensive and up-to-date, which will result in some node connection channels being biased and reduce the quality of the entire network. 
 
@@ -214,7 +267,7 @@ Historically, the Bank of England exchanged the full amount of gold with the Bri
 
 # Conclusion 
 
-The goal of the BOS Network is to build an EOSIO ecosystem that supports more DApps and solve real-world problems through the usage of blockchain technology. From the perspective of the evolution of the blockchain, in addition to becoming the preferred base chain for DApps, the BOS Network aims to serve as a intermediary circulation chain for various heterogeneous chain coins or tokens, and as a "free port" in the blockchain world. The BOS Network comes from the community and will better develop through the joint eﬀorts of the community.
+The goal of the BOS Network is to build an EOSIO ecosystem that supports more DApp and solve real-world problems through the usage of blockchain technology. From the perspective of the evolution of the blockchain, in addition to becoming the preferred base chain for DApps, the BOS Network aims to serve as a intermediary circulation chain for various heterogeneous chain coins or tokens, and as a "free port" in the blockchain world. The BOS Network comes from the community and will better develop through the joint eﬀorts of the community.
 
 
 # References 
