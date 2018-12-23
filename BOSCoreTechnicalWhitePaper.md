@@ -152,7 +152,12 @@ At present, the known random number schemes in EOSIO are basically combined with
 
 Combined with bpsig_action_time_seed, a safer random number scheme involving users, nodes, and DApp parties can be built. 
 bpsig_action_time_seed is generated as follows:
-bpsig_action_time_seed = sign(BP_Sign_Key, F(block_timestamp, 0.5) + global_action_sequence) Note:
+
+```
+bpsig_action_time_seed = sign(BP_Sign_Key, F(block_timestamp, 0.5) + global_action_sequence)
+``` 
+
+Note:
 - BP_Sign_Key: The purpose of signing with a BP private key is to prevent others from a speculative calculation.
 - F: The down integral function of block_timestamp by 0.5, and the BP adjustment timestamp is lowered to make the probability of speculation.
 - Global_action_sequence: global action auto-increment flag, used to prevent INLINE_ACTION attacks.
