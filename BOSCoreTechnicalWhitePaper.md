@@ -210,12 +210,16 @@ The BOS Network has been enhanced to address this, and the configurations can se
 ## Issuance Method 
 
 The Distributor which issues and sells BOS shall be an affiliate of the Foundation. The initial supply of BOS is 1 billion. The breakdown is as follows:
-- 100 million will be managed by the BOS Foundation (unlocked over 10 years)
-- 100 million will be reserved for ecological incentives 
-  - 10 million direct airdropped on EOS mainnet accounts
-  - 20 million rewarded to excellent node and DApp team rewards
-  - 70 million distributed for DApp user incentives
-- 800 million BOS will be exchanges in batches on the mainnet BOS. 
+- 100 million will be used to do eco-airdrop
+  - 50 million directly airdropped to EOS mainnet accounts
+  - 50 million will be airdropped based on the transaction volumes of DApps and BP teams
+- 100 million for strategic partner fund
+  - which will be used to invest in quality projects based on BOS and cover cost of the BOS's operations
+- 400 million used to incentivize the ecosytem, specifically, to subsidize payments and transactions on BOS chain
+- 200 million left for the BOS team, which will be unlocked over a 4-year schedule;
+- 200 million for private sale investors.
+  - Private sale will be in four rounds
+  - 50 million will be up for sale in each round
 
 The annual inflation is 2%:
 - 1% for BP rewards
