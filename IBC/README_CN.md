@@ -35,7 +35,7 @@ ibc系统在一条链上只有一个ibc.token合约，原链上被映射的多�
 
 ## 被承兑token合约transfer 接口说明
 
-源码链接:https://github.com/boscore/bos.contracts/blob/master/ibc.token/src/ibc.token.cpp#L367
+[源码链接](https://github.com/boscore/bos.contracts/blob/feature/ibc/ibc.token/src/ibc.token.cpp)
 
 当用户将资产从其原链转移到对方链上时调用。
 
