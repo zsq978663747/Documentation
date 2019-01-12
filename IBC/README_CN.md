@@ -63,6 +63,7 @@ cleos transfer fromsomeone1 ibc2token555 "1.0000 EOS" "ibc r=bosaccounta"
 需要用的两个网络的url：（这里用的是测试网落的url）
 
 eos-api= -u http://bos-testnet.meet.one:8888
+
 bos-api= -u http://kylin.meet.one:8888
 
 ### 1) 从EOS主网上转出"50.0000 EOS"到BOS主网上
