@@ -59,8 +59,8 @@ cleos transfer fromsomeone1 ibctk.bos.io "1.0000 EOS" "ibc r=bosaccounta"
 当调用被承兑token的transfer接口，并且to为ibc.token合约时，memo必须以ibc 或 local开头，否则会失败，当以local开头时，ibc.token合约不做处理，因为不是跨链交易，这个目的是允许直接给ibc.token合约账户转账，而与跨链无关。
 
 ## EOS 主网和BOS 主网的两个账户
-EOS：ibctk.bos.io 
-BOS：eostk.ibc  
+**EOS：ibctk.bos.io**
+**BOS：eostk.ibc** 
 
 ## 详细操作举例
 
