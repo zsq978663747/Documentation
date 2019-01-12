@@ -58,3 +58,60 @@ cleos transfer fromsomeone1 ibc2token555 "1.0000 EOS" "ibc r=bosaccounta"
 ```
 当调用被承兑token的transfer接口，并且to为ibc.token合约时，memo必须以ibc 或 local开头，否则会失败，当以local开头时，ibc.token合约不做处理，因为不是跨链交易，这个目的是允许直接给ibc.token合约账户转账，而与跨链无关。
 
+## 详细操作
+
+需要用的两个网络的url：（这里用的是测试网落的url）
+
+eos-api= -u http://bos-testnet.meet.one:8888
+bos-api= -u http://kylin.meet.one:8888
+
+### 1) 从EOS主网上转出"50.0000 EOS"到BOS主网上
+````
+cleos ${eos-api} transfer  <eos-account>  ibctoken.io "50.0000 EOS" "ibc receiver=<bos-account>" 
+cleos ${eos-api} get currency balance  eosio.token <eos-account> #减少
+cleos ${eos-api} get currency balance  eosio.token ibctoken.io #增加 
+````
+在BOS网上查看
+```
+$cleos ${bos-api} get currency balance  ibctoken.io <bos-account>
+100.0000 EOSPG
+```
+
+### 2) 从BOS网上，转出“50.0000 BOS”到EOS主网上
+```
+cleos ${bos-api} transfer <bos-account>  ibctoken.io "50.0000 BOS" "ibc receiver=<eos-account>" 
+cleos ${bos-api} get currency balance  eosio.token <bos-account> #减少
+cleos ${bos-api} get currency balance  eosio.token ibctoken.io #增加 
+```
+在eos主网上进行查看
+```
+$cleos ${bos-api} get currency balance ibctoken.io <eos-account>
+50.0000 BOSPG
+```
+
+### 3) 从eos主网上转出"10.0000 BOSPG"到BOS主网
+````
+cleos ${eos-api} push action ibctoken.io transfer '["<eos-account>","ibctoken.io","10.0000 BOSPG" "ibc receiver=boscoretest2"]' -p <eos-account>   
+cleos ${eos-api} get currency balance ibctoken.io <eos-account> #减少10 BOSPS
+````
+在BOS网上查看
+```
+$cleos ${bos-api} get currency balance  eosio.token <bos-account> #增加 10 BOS
+```
+
+### 4) 从BOS网上转出"10.0000 EOSPG"到eos主网
+````
+cleos ${bos-api} push action ibctoken.io transfer '["<bos-account>","ibctoken.io","10.0000 EOSPG" "ibc receiver=ibckylintest"]' -p <bos-account>   
+cleos ${bos-api} get currency balance ibctoken.io <bos-account> #减少10 BOSPS
+````
+在eos主网上查看
+```
+$cleos ${eos-api} get currency balance  eosio.token <eos-account> #增加 10 EOS
+```
+
+*说明：由于进行的跨链转账，所以到账时间会有延迟*
+
+
+
+
+
