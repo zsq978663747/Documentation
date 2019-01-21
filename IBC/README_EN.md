@@ -40,7 +40,12 @@ Example:
     Cleos transfer bosuser2 bosibc.io "100.0000 EOS" "eosuser1@eos This is a cross-chain transfer from BOS to EOS"
 ```
 
-*Description: Due to the cross-chain transfer, there will be a delay in the arrival time. It is safe to consider, waiting for both ends of the transaction to enter LIB, the time should be about 6 minutes*
-
+Tips:
+  - the minimum transfer number is 0.2 EOS/BOS
+  - the maximum transfer number is 1000 EOS/BOS
+  - the tps of IBC transfer is 200
+  - one-way transfer fee is 0.1 EOS/BOS
+  - transfer effective time is 4-5 minutes
+  
 
 Therefore, the user can complete the cross-chain asset using the existing mobile phone app wallet, but the existing wallet needs to support the ibc.token contract. The support is also very simple, because the transfer interface definition of the ibc.token contract and the transfer definition of eosio.token. The exact same, mobile app wallet can also provide a proprietary interface to enhance the user experience.

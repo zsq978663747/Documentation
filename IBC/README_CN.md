@@ -40,8 +40,12 @@ ibc系统在一条链上只有一个ibc.token合约，原链上被映射的多�
     cleos transfer bosuser2 bosibc.io "100.0000 EOS" "eosuser1@eos 这是一笔BOS到EOS的跨链转账"
 ``` 
 
-*说明：由于进行的跨链转账，所以到账时间会有延迟，处于安全考虑，等待两端交易都进LIB，时间应该在 6分钟左右*
-
+说明： 
+  - 单笔转账最小额度 0.2 EOS/BOS
+  - 单笔最大额度 1000 EOS/BOS
+  - 每分钟支持 200 比跨链交易
+  - 单向收取手续费，定额 0.1 EOS/BOS
+  - 到账时间 4-5 分钟
 
 因此用户使用现有的手机app钱包即可完成跨链资产，但需要现有的钱包增加支持ibc.token合约，支持也很简单，因为ibc.token合约的transfer接口定义和eosio.token的transfer定义完全相同，手机app钱包也可以提供专有的的界面，增强用户体验。
 
