@@ -51,7 +51,7 @@ $ sudo ./eosio_install.sh
 ### 编译 eosio.cdt
 ``` 
 $ git clone https://github.com/EOSIO/eosio.cdt.git
-$ cd eos && git checkout release/v1.4.x
+$ cd eosio.cdt && git checkout release/v1.4.x
 $ ./build.sh
 $ sudo ./install.sh
 ```
@@ -117,15 +117,15 @@ ibc-peer-private-key = EOS65jr3UsJi2Lpe9GbxDUmJYUpWeBTJNrqiDq2hYimQyD2kThfAE=KEY
 ## 编译部署bos版本
 ### 编译 bos
 ``` 
-$ git clone https://github.com/EOSIO/eos.git
+$ git clone https://github.com/boscore/bos.git
 $ cd eos && git checkout release/v2.0.x
 $ ./eosio_build.sh
 $ sudo ./eosio_install.sh
 ```
 ### 编译 bos.cdt
 ``` 
-$ git clone https://github.com/EOSIO/eosio.cdt.git
-$ cd eos && git checkout release/v2.0.x
+$ git clone https://github.com/boscore/bos.cdt.git
+$ cd bos.cdt && git checkout release/v2.0.x
 $ ./build.sh
 $ sudo ./install.sh
 ```
@@ -168,7 +168,7 @@ $cleos2 push action ${contract_token} regpegtoken \
 
 ``` bash
 $ git clone https://github.com/boscore/ibc_plugin_bos.git
-$ cd eos && git checkout feature/ibc-plugin   # 为了结合bos其他功能一起测试，此分支已经合并了master分支的内容
+$ cd ibc_plugin_bos && git checkout feature/ibc-plugin   # 为了结合bos其他功能一起测试，此分支已经合并了master分支的内容
 # 注释掉 plugins/ibc_plugin/ibc_plugin.cpp 文件中约第39行的 #define PLUGIN_TEST
 $ ./eosio_build.sh
 ```
@@ -199,10 +199,8 @@ ibc-peer-private-key = EOS65jr3UsJi2Lpe9GbxDUmJYUpWeBTJNrqiDq2hYimQyD2kThfAE=KEY
 
 ## 详细操作
 
-需要用的两个网络的url：
-
-kylin-api= -u http://kylin.meet.one:8888
-
+需要用的两个网络的url：<br/>
+kylin-api= -u http://kylin.meet.one:8888<br/>
 bos-api= -u http://bos-testnet.meet.one:8888
 
 ### 1) 从kylin测试网上转出"50.0000 EOS"到BOS测试网上
