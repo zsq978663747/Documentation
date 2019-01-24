@@ -1,8 +1,8 @@
 # IBC Deployment Document
 
-This article will detail how to compile, deploy, and test an IBC system. Take the Kylin test network and the BOS test network environment as examples.
+This article will detail how to build, deploy, and test an IBC system. Take the Kylin test network and the BOS test network environment as examples.
 ## Prerequisites
-Compile completed eos, eosio.cdt, bos, bos.cdt
+build completed eos, eosio.cdt, bos, bos.cdt
 
 * https://github.com/EOSIO/eos.git
 * https://github.com/EOSIO/eosio.cdt.git
@@ -16,27 +16,27 @@ Https://github.com/boscore/bosibc.contracts.git
 Https://github.com/boscore/ibc_plugin_bos.git
 ```
 ## The basic steps
-1. Compile and deploy the eos version
-Compile eos
-1. Compile eosio.cdt
-1. compile bosibc.contracts
+1. build and deploy the eos version
+build eos
+1. build eosio.cdt
+1. build bosibc.contracts
 1. Deploy bosibc.contracts
 1. Initialize bosibc.contracts
-1. Compile ibc_plugin_eos
+1. build ibc_plugin_eos
 1. Configure ibc_plugin_eos
-1. Compile and deploy the bos version
-Compile bos
-1. compile bos.cdt
-1. compile bosibc.contracts
+1. build and deploy the bos version
+build bos
+1. build bos.cdt
+1. build bosibc.contracts
 1. Deploy bosibc.contracts
 1. Initialize bosibc.contracts
-1. Compile ibc_plugin_bos
+1. build ibc_plugin_bos
 1. Configure ibc_plugin_bos
 1. IBC cross-chain trading test example
 
-## Compiling and deploying the eos version
+## building and deploying the eos version
 
-### Compiling eos
+### building eos
 
 ```
 $ git clone https://github.com/EOSIO/eos.git
@@ -45,14 +45,14 @@ $ ./eosio_build.sh
 $ sudo ./eosio_install.sh
 ```
 
-### Compiling eosio.cdt
+### building eosio.cdt
 ```
 $ git clone https://github.com/EOSIO/eosio.cdt.git
 $ cd eosio.cdt && git checkout release/v1.4.x
 $ ./build.sh
 $ sudo ./install.sh
 ```
-### Compiling bosibc.contracts
+### building bosibc.contracts
 
 ``` bash
 $ git clone https://github.com/boscore/bosibc.contracts.git
@@ -87,7 +87,7 @@ $cleos1 push action ${contract_token} regpegtoken \
     "100000.0000 BOSPG",1000,"ibc2tokeneos","eosio.token","4,BOS",true]' -p ${contract_token}
 
 ```
-### Compiling ibc_plugin_eos
+### building ibc_plugin_eos
 
 ```
 $ git clone https://github.com/boscore/ibc_plugin_eos.git
@@ -111,22 +111,22 @@ Ibc-sidechain-id = aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e
 Ibc-peer-private-key = EOS65jr3UsJi2Lpe9GbxDUmJYUpWeBTJNrqiDq2hYimQyD2kThfAE=KEY:5KHJeTFezCwFCYsaA4Hm2sqEXvxmD2zkgvs3fRT2KarWLiTwv71
 ```
 
-## Compile and deploy the bos version
-### Compile bos
+## build and deploy the bos version
+### build bos
 ```
 $ git clone https://github.com/boscore/bos.git
 $ cd eos && git checkout release/v2.0.x
 $ ./eosio_build.sh
 $ sudo ./eosio_install.sh
 ```
-### Compiling bos.cdt
+### building bos.cdt
 ```
 $ git clone https://github.com/boscore/bos.cdt.git
 $ cd bos.cdt && git checkout release/v2.0.x
 $ ./build.sh
 $ sudo ./install.sh
 ```
-### Compiling bosibc.contracts
+### building bosibc.contracts
 
 ``` bash
 $ git clone https://github.com/boscore/bosibc.contracts.git
