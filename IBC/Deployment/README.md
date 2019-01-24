@@ -62,7 +62,7 @@ $ ./build.sh
 
 ### Deploy bosibc.contracts
 Create three accounts ibc2chaineos, ibc2tokeneos, ibc2relayeos<br/>
-Purchase RAM 10Mb, CPU 100 EOS, NET 100 EOS for ibc2chaineos, ibc2tokeneos
+Purchase RAM 10Mb, CPU 100 EOS, NET 100 EOS for ibc2chaineos, ibc2tokeneos<br/>
 Purchase CPU 5000 EOS for ibc2relayeos, NET 500 EOS<br/>
 And deploy the ibc.chain contract with ibc2chaineos and the ibc.token contract with ibc2tokeneos
 ### Initialization bosibc.contracts
