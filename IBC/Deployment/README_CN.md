@@ -15,7 +15,7 @@
 ## IBC 3个库
 ```
 https://github.com/boscore/ibc_plugin_eos.git
-https://github.com/boscore/bosibc.contracts.git
+https://github.com/boscore/ibc_contracts.git
 https://github.com/boscore/ibc_plugin_bos.git
 ```
 ## 基本步骤
@@ -58,7 +58,7 @@ $ sudo ./install.sh
 ### 编译 bosibc.contracts
 
 ``` bash
-$ git clone https://github.com/boscore/bosibc.contracts.git
+$ git clone https://github.com/boscore/ibc_contracts.git
 $ cd bosibc.contracts 
 $ ./build.sh
 ```
@@ -132,7 +132,7 @@ $ sudo ./install.sh
 ### 编译 bosibc.contracts
 
 ``` bash
-$ git clone https://github.com/boscore/bosibc.contracts.git
+$ git clone https://github.com/boscore/ibc_contracts.git
 $ cd bosibc.contracts 
 $ ./build.sh
 ```

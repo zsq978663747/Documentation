@@ -12,7 +12,7 @@ build completed eos, eosio.cdt, bos, bos.cdt
 ## IBC 3 libraries
 ```
 Https://github.com/boscore/ibc_plugin_eos.git
-Https://github.com/boscore/bosibc.contracts.git
+https://github.com/boscore/ibc_contracts.git
 Https://github.com/boscore/ibc_plugin_bos.git
 ```
 ## The basic steps
@@ -55,7 +55,7 @@ $ sudo ./install.sh
 ### building bosibc.contracts
 
 ``` bash
-$ git clone https://github.com/boscore/bosibc.contracts.git
+$ git clone https://github.com/boscore/ibc_contracts.git
 $ cd bosibc.contracts
 $ ./build.sh
 ```
@@ -129,7 +129,7 @@ $ sudo ./install.sh
 ### building bosibc.contracts
 
 ``` bash
-$ git clone https://github.com/boscore/bosibc.contracts.git
+$ git clone https://github.com/boscore/ibc_contracts.git
 $ cd bosibc.contracts
 $ ./build.sh
 ```
