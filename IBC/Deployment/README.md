@@ -37,14 +37,14 @@ Https://github.com/boscore/ibc_plugin_bos.git
 
 ## building and deploying the eos version
 ### building bosibc.contracts
-#### solution 1 Pre-compilation bosibc.contracts
+#### solution 1 Pre-building bosibc.contracts
 
 ```
 $ git clone https://github.com/boscore/bos.contract-prebuild.git
 $ cd bos.contract-prebuild/ibceosio_version
 ```
 
-#### solution 2 Source compilation bosibc.contracts
+#### solution 2 building bosibc.contracts from source code
 ##### building eos
 
 ```
@@ -122,14 +122,14 @@ Ibc-peer-private-key = EOS65jr3UsJi2Lpe9GbxDUmJYUpWeBTJNrqiDq2hYimQyD2kThfAE=KEY
 
 ## build and deploy the bos version
 ### building bosibc.contracts
-#### solution 1 Pre-compilation bosibc.contracts
+#### solution 1 Pre-building bosibc.contracts
 
 ```
 $ git clone https://github.com/boscore/bos.contract-prebuild.git
 $ cd bos.contract-prebuild/ibcbos_version
 ```
 
-#### solution 2 Source compilation bosibc.contracts
+#### solution 2 building bosibc.contracts from Source code
 ##### build bos
 ```
 $ git clone https://github.com/boscore/bos.git
