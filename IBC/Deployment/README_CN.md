@@ -4,33 +4,34 @@
 # IBC 部署文档
 
 本文将详细描述如何编译、部署、测试IBC系统。以Kylin 测试网 和 BOS 测试网 环境为例
-## 前提条件 
-编译完成eos，eosio.cdt,bos,bos.cdt
 
-* https://github.com/EOSIO/eos.git
-* https://github.com/EOSIO/eosio.cdt.git
-* https://github.com/boscore/bos.git
-* https://github.com/boscore/bos.cdt.git
 
-## IBC 3个库
+## IBC 4个库
 ```
+https://github.com/boscore/bos.contract-prebuild.git
 https://github.com/boscore/ibc_plugin_eos.git
 https://github.com/boscore/ibc_contracts.git
 https://github.com/boscore/ibc_plugin_bos.git
 ```
 ## 基本步骤
 1. 编译部署eos版本
-	1. 编译 eos
-	1. 编译 eosio.cdt
-	1. 编译 bosibc.contracts
+   1. 编译 bosibc.contracts
+   	   1.方案一 预编译 bosibc.contracts
+	   1.方案二 源码编译 bosibc.contracts
+			1. 编译 eos
+			1. 编译 eosio.cdt
+			1. 编译 bosibc.contracts
 	1. 部署 bosibc.contracts
 	1. 初始化 bosibc.contracts
 	1. 编译 ibc_plugin_eos
 	1. 配置  ibc_plugin_eos
 1. 编译部署bos版本
-	1. 编译 bos
-	1. 编译 bos.cdt
-	1. 编译 bosibc.contracts
+   1. 编译 bosibc.contracts
+   	   1. 方案一 预编译 bosibc.contracts
+	   1. 方案二 源码编译 bosibc.contracts
+			1. 编译 bos
+			1. 编译 bos.cdt
+			1. 编译 bosibc.contracts
 	1. 部署 bosibc.contracts
 	1. 初始化 bosibc.contracts
 	1. 编译 ibc_plugin_bos
@@ -39,7 +40,16 @@ https://github.com/boscore/ibc_plugin_bos.git
 
 ## 编译部署eos版本
 
-### 编译 eos
+### 编译 bosibc.contracts
+#### 方案一 预编译 bosibc.contracts
+
+```
+$ git clone https://github.com/boscore/bos.contract-prebuild.git
+$ cd ibceosio_version
+```
+
+#### 方案二 源码编译 bosibc.contracts
+##### 编译 eos
 
 ``` 
 $ git clone https://github.com/EOSIO/eos.git
@@ -48,14 +58,14 @@ $ ./eosio_build.sh
 $ sudo ./eosio_install.sh
 ```
 
-### 编译 eosio.cdt
+##### 编译 eosio.cdt
 ``` 
 $ git clone https://github.com/EOSIO/eosio.cdt.git
 $ cd eosio.cdt && git checkout release/v1.4.x
 $ ./build.sh
 $ sudo ./install.sh
 ```
-### 编译 bosibc.contracts
+##### 编译 bosibc.contracts
 
 ``` bash
 $ git clone https://github.com/boscore/ibc_contracts.git
@@ -115,21 +125,30 @@ ibc-peer-private-key = EOS65jr3UsJi2Lpe9GbxDUmJYUpWeBTJNrqiDq2hYimQyD2kThfAE=KEY
 ```
 
 ## 编译部署bos版本
-### 编译 bos
+### 编译 bosibc.contracts
+#### 方案一 预编译 bosibc.contracts
+
+```
+$ git clone https://github.com/boscore/bos.contract-prebuild.git
+$ cd ibcbos_version
+```
+
+#### 方案二 源码编译 bosibc.contracts
+##### 编译 bos
 ``` 
 $ git clone https://github.com/boscore/bos.git
 $ cd eos && git checkout release/v2.0.x
 $ ./eosio_build.sh
 $ sudo ./eosio_install.sh
 ```
-### 编译 bos.cdt
+##### 编译 bos.cdt
 ``` 
 $ git clone https://github.com/boscore/bos.cdt.git
 $ cd bos.cdt && git checkout release/v2.0.x
 $ ./build.sh
 $ sudo ./install.sh
 ```
-### 编译 bosibc.contracts
+##### 编译 bosibc.contracts
 
 ``` bash
 $ git clone https://github.com/boscore/ibc_contracts.git
