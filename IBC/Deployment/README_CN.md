@@ -16,22 +16,22 @@ https://github.com/boscore/ibc_plugin_bos.git
 ## 基本步骤
 1. 编译部署eos版本
    1. 编译 bosibc.contracts
-   	   1.方案一 预编译 bosibc.contracts
-	   1.方案二 源码编译 bosibc.contracts
+		1. 方案一 预编译 bosibc.contracts
+		1. 	方案二 源码编译 bosibc.contracts
 			1. 编译 eos
-			1. 编译 eosio.cdt
-			1. 编译 bosibc.contracts
+			1. 	编译 eosio.cdt
+			1. 	编译 bosibc.contracts
 	1. 部署 bosibc.contracts
 	1. 初始化 bosibc.contracts
 	1. 编译 ibc_plugin_eos
 	1. 配置  ibc_plugin_eos
 1. 编译部署bos版本
    1. 编译 bosibc.contracts
-   	   1. 方案一 预编译 bosibc.contracts
-	   1. 方案二 源码编译 bosibc.contracts
-			1. 编译 bos
-			1. 编译 bos.cdt
-			1. 编译 bosibc.contracts
+		1. 方案一 预编译 bosibc.contracts
+		1. 方案二 源码编译 bosibc.contracts
+			1. 	编译 bos
+			1. 	编译 bos.cdt
+			1. 	编译 bosibc.contracts
 	1. 部署 bosibc.contracts
 	1. 初始化 bosibc.contracts
 	1. 编译 ibc_plugin_bos

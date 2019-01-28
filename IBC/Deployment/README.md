@@ -12,27 +12,27 @@ Https://github.com/boscore/ibc_plugin_bos.git
 ```
 ## The basic steps
 1. build and deploy the eos version
-1. build bosibc.contracts
-	1. solution 1 Pre building bosibc.contracts
-	1. solution 2 building bosibc.contracts from Source code
-		1. build eos
-		1. build eosio.cdt
-		1. build bosibc.contracts
-1. Deploy bosibc.contracts
-1. Initialize bosibc.contracts
-1. build ibc_plugin_eos
-1. Configure ibc_plugin_eos
+	1. build bosibc.contracts
+		1. solution 1 Pre building bosibc.contracts
+		1. solution 2 building bosibc.contracts from Source code
+			1. build eos
+			1. build eosio.cdt
+			1. build bosibc.contracts
+	1. Deploy bosibc.contracts
+	1. Initialize bosibc.contracts
+	1. build ibc_plugin_eos
+	1. Configure ibc_plugin_eos
 1. build and deploy the bos version
-1. build bosibc.contracts
-	1. solution 1 Pre building bosibc.contracts
-	1. solution 2 building bosibc.contracts from Source code
-		1. build bos
-		1. build bos.cdt
-		1. build bosibc.contracts
-1. Deploy bosibc.contracts
-1. Initialize bosibc.contracts
-1. build ibc_plugin_bos
-1. Configure ibc_plugin_bos
+	1. build bosibc.contracts
+		1. solution 1 Pre building bosibc.contracts
+		1. solution 2 building bosibc.contracts from Source code
+			1. build bos
+			1. build bos.cdt
+			1. build bosibc.contracts
+	1. Deploy bosibc.contracts
+	1. Initialize bosibc.contracts
+	1. build ibc_plugin_bos
+	1. Configure ibc_plugin_bos
 1. IBC cross-chain trading test example
 
 ## building and deploying the eos version
