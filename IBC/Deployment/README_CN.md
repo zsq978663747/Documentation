@@ -45,7 +45,7 @@ https://github.com/boscore/ibc_plugin_bos.git
 
 ```
 $ git clone https://github.com/boscore/bos.contract-prebuild.git
-$ cd ibceosio_version
+$ cd bos.contract-prebuild/ibceosio_version
 ```
 
 #### 方案二 源码编译 bosibc.contracts
@@ -130,7 +130,7 @@ ibc-peer-private-key = EOS65jr3UsJi2Lpe9GbxDUmJYUpWeBTJNrqiDq2hYimQyD2kThfAE=KEY
 
 ```
 $ git clone https://github.com/boscore/bos.contract-prebuild.git
-$ cd ibcbos_version
+$ cd bos.contract-prebuild/ibcbos_version
 ```
 
 #### 方案二 源码编译 bosibc.contracts
