@@ -1,42 +1,51 @@
 # IBC Deployment Document
 
 This article will detail how to build, deploy, and test an IBC system. Take the Kylin test network and the BOS test network environment as examples.
-## Prerequisites
-build completed eos, eosio.cdt, bos, bos.cdt
 
-* https://github.com/EOSIO/eos.git
-* https://github.com/EOSIO/eosio.cdt.git
-* https://github.com/boscore/bos.git
-* https://github.com/boscore/bos.cdt.git
 
-## IBC 3 libraries
+## IBC 4 libraries
 ```
+https://github.com/boscore/bos.contract-prebuild.git
 Https://github.com/boscore/ibc_plugin_eos.git
 https://github.com/boscore/ibc_contracts.git
 Https://github.com/boscore/ibc_plugin_bos.git
 ```
 ## The basic steps
 1. build and deploy the eos version
-build eos
-1. build eosio.cdt
-1. build bosibc.contracts
-1. Deploy bosibc.contracts
-1. Initialize bosibc.contracts
-1. build ibc_plugin_eos
-1. Configure ibc_plugin_eos
+	1. build bosibc.contracts
+		1. solution 1 Pre building bosibc.contracts
+		1. solution 2 building bosibc.contracts from Source code
+			1. build eos
+			1. build eosio.cdt
+			1. build bosibc.contracts
+	1. Deploy bosibc.contracts
+	1. Initialize bosibc.contracts
+	1. build ibc_plugin_eos
+	1. Configure ibc_plugin_eos
 1. build and deploy the bos version
-build bos
-1. build bos.cdt
-1. build bosibc.contracts
-1. Deploy bosibc.contracts
-1. Initialize bosibc.contracts
-1. build ibc_plugin_bos
-1. Configure ibc_plugin_bos
+	1. build bosibc.contracts
+		1. solution 1 Pre building bosibc.contracts
+		1. solution 2 building bosibc.contracts from Source code
+			1. build bos
+			1. build bos.cdt
+			1. build bosibc.contracts
+	1. Deploy bosibc.contracts
+	1. Initialize bosibc.contracts
+	1. build ibc_plugin_bos
+	1. Configure ibc_plugin_bos
 1. IBC cross-chain trading test example
 
 ## building and deploying the eos version
+### building bosibc.contracts
+#### solution 1 Pre-building bosibc.contracts
 
-### building eos
+```
+$ git clone https://github.com/boscore/bos.contract-prebuild.git
+$ cd bos.contract-prebuild/ibceosio_version
+```
+
+#### solution 2 building bosibc.contracts from source code
+##### building eos
 
 ```
 $ git clone https://github.com/EOSIO/eos.git
@@ -45,14 +54,14 @@ $ ./eosio_build.sh
 $ sudo ./eosio_install.sh
 ```
 
-### building eosio.cdt
+##### building eosio.cdt
 ```
 $ git clone https://github.com/EOSIO/eosio.cdt.git
 $ cd eosio.cdt && git checkout release/v1.4.x
 $ ./build.sh
 $ sudo ./install.sh
 ```
-### building bosibc.contracts
+##### building bosibc.contracts
 
 ``` bash
 $ git clone https://github.com/boscore/ibc_contracts.git
@@ -112,21 +121,30 @@ Ibc-peer-private-key = EOS65jr3UsJi2Lpe9GbxDUmJYUpWeBTJNrqiDq2hYimQyD2kThfAE=KEY
 ```
 
 ## build and deploy the bos version
-### build bos
+### building bosibc.contracts
+#### solution 1 Pre-building bosibc.contracts
+
+```
+$ git clone https://github.com/boscore/bos.contract-prebuild.git
+$ cd bos.contract-prebuild/ibcbos_version
+```
+
+#### solution 2 building bosibc.contracts from Source code
+##### build bos
 ```
 $ git clone https://github.com/boscore/bos.git
 $ cd eos && git checkout release/v2.0.x
 $ ./eosio_build.sh
 $ sudo ./eosio_install.sh
 ```
-### building bos.cdt
+##### building bos.cdt
 ```
 $ git clone https://github.com/boscore/bos.cdt.git
 $ cd bos.cdt && git checkout release/v2.0.x
 $ ./build.sh
 $ sudo ./install.sh
 ```
-### building bosibc.contracts
+##### building bosibc.contracts
 
 ``` bash
 $ git clone https://github.com/boscore/ibc_contracts.git
