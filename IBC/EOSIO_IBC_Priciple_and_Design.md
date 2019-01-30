@@ -200,7 +200,7 @@ need to be fully considered, therefore, many adjustments need to be made in the 
 
 **3.3.2 eosio::table("chaindb"), "forkdb" of ibc.chain contract**  
 
-*1. How to determine the LIB of the Lightweight Client (lwc)*
+*1. How to determine the LIB of the Lightweight Client (lwc)*  
 There are two schemes. One is to maintain a whole set of `confirm_count`, `confirmations` and other `block_header_state` 
 related information according to the logic of forkdb, calculate LIB every time a block is added
 The advantage of this method is that real-time LIB values can be obtained accurately. However, for light client, 
@@ -290,7 +290,7 @@ IBC transactions are completed before they can be rolled back.
 (Note: Subsequent upgrades will roll back failed transactions as soon as possible)
 
 
-*3. How to prevent replay attacks, i.e. double-flower attacks*
+*3. How to prevent replay attacks, i.e. double-flower attacks*  
 Preventing double-flower attacks can be divided into two stages:
 1. A successful cross-chain transaction can only execute **cash** once, otherwise it will result in repeated cash.
 2. For each **cash** transaction, the relevant information must be sent back to the original chain to execute the 
@@ -314,8 +314,8 @@ The role of ibc_plugin is divided into two parts: 1. light client synchronizatio
 For core logic, see `ibc_plugin_impl::ibc_core_checker()`.
 ibc_plugin refers mainly to the framework of net_plugin.
 
-### 6. Questions and Answers
 
+### 6. Questions and Answers
 1. Question: relay's authority is used in many actions of IBC contracts, so does the IBC system depend on trust in relays?  
 Answer: There are two considerations in validating relay authority: 
 1. The ibc.chain contract uses the **section** mechanism, and the current logic does not allow adding blocks to the old section,
@@ -334,10 +334,14 @@ Currently, the co-existence of multiple relay channels leads to the failure of c
 stop working. The solution is to strengthen and improve the management of sction in contracts and ibc_plugin, 
 so that multiple relay channels coexist and improve the reliability of the entire IBC system.
 
+
 ### 8. Upgrade plan
-*1. Compatible with PBFT consistency algorithm*
-*2. Supporting inter-blockchain transactions between multiple side chains in a more elegant way*
-*3. Supporting inter-blockchain commuincation for more types of data than "token"*
+*1. Compatible with PBFT consistency algorithm*  
+
+*2. Supporting inter-blockchain transactions between multiple side chains in a more elegant way*  
+
+*3. Supporting inter-blockchain commuincation for more types of data than "token"*  
+
 
 ### 9. Reference
 [Inter-blockchain Communication via Merkle Proofs with EOS.IO](https://steemit.com/eos/@dan/inter-blockchain-communication-via-merkle-proofs-with-eos-io) *Bytemaster*    
