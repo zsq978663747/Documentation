@@ -316,26 +316,21 @@ ibc_plugin refers mainly to the framework of net_plugin.
 
 
 ### 6. Questions and Answers
-1. Question: relay's authority is used in many actions of IBC contracts, so does the IBC system depend on trust in relays?  
-Answer: There are two considerations in validating relay authority: 
-1. The ibc.chain contract uses the **section** mechanism, and the current logic does not allow adding blocks to the old section,
+*1. Question: relay's authority is used in many actions of IBC contracts, so does the IBC system depend on trust in relays?*   
+Answer: At present, for the sake of security and fast function iteration, relay privileges are added. 
+With the gradual improvement and maturity of IBC, BOS IBC will support multiple relay channels to avoid single-point risk.
+
+There are two considerations in validating relay authority: 
+first. The ibc.chain contract uses the **section** mechanism, and the current logic does not allow adding blocks to the old section,
 it is also not allowed to add a block header before a section. If anyone can call the "pushsection" action, 
 assuming that the range of blocks that should be pushed is 1000-1300, the deliberate troublemaker may push 1100-1300 first,
 as a result, 1000-1100 can not be pushed any more, leading to some cross-chain transactions can not be successful. 
 (Note, this issue will be considered in future versions of optimization.) 
-2, Considering that IBC system carries a large number of user assets, and the system has not passed the long-term market test, 
+second, Considering that IBC system carries a large number of user assets, and the system has not passed the long-term market test, 
 so the relay authority is increased to reduce security risks.
 
 
-### 7. Problems to be solved
-*1. Multiple relay channels cannot coordinate work*
-Due to the introduction of section mechanism, Adding complexity to the entire IBC logic. 
-Currently, the co-existence of multiple relay channels leads to the failure of coordination, which may causes the IBC system
-stop working. The solution is to strengthen and improve the management of sction in contracts and ibc_plugin, 
-so that multiple relay channels coexist and improve the reliability of the entire IBC system.
-
-
-### 8. Upgrade plan
+### 7. Upgrade plan
 *1. Compatible with PBFT consistency algorithm*  
 
 *2. Supporting inter-blockchain transactions between multiple side chains in a more elegant way*  
@@ -343,7 +338,7 @@ so that multiple relay channels coexist and improve the reliability of the entir
 *3. Supporting inter-blockchain commuincation for more types of data than "token"*  
 
 
-### 9. Reference
+### 8. Reference
 [Inter-blockchain Communication via Merkle Proofs with EOS.IO](https://steemit.com/eos/@dan/inter-blockchain-communication-via-merkle-proofs-with-eos-io) *Bytemaster*    
 [Bitcoin](https://bitcoin.org/bitcoin.pdf) *Satoshi Nakamoto*   
 [Chain Interoperability](https://static1.squarespace.com/static/55f73743e4b051cfcc0b02cf/t/5886800ecd0f68de303349b1/1485209617040/Chain+Interoperability.pdf) *Vitalik Buterin*   

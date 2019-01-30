@@ -235,20 +235,15 @@ ibc_plugin主要参考了net_plugin的框架。
 ### 六、问答
 
 1. 问：IBC合约的多个action中用到了relay的权限，那么，本IBC系统是否依赖对中继的信任。  
-答：验证relay权限处于两种考虑：1，ibc.chain合约使用了section的机制，现在的逻辑不允许为旧的section添加区块，也不允许在一个section前面
-添加区块头，
-如果任何人都可以调用pushsection接口，假设应该push的区块范围是1000-1300，故意捣乱的人可能会抢先push 1100-1300，
+答：目前出于安全以及快速功能迭代的考量，特意添加了中继权限，随着功能逐渐完善 BOS IBC 方案会支持多中继机制，以避免单点风险。
+
+验证relay权限处于两种考虑：1，ibc.chain合约使用了section的机制，现在的逻辑不允许为旧的section添加区块，也不允许在一个section前面
+添加区块头，如果任何人都可以调用pushsection接口，假设应该push的区块范围是1000-1300，故意捣乱的人可能会抢先push 1100-1300，
 从而导致1000-1100无法被push，进而导致一些跨链交易无法成功，（注，此问题会在后续版本中考虑优化）；2，考虑到IBC系统承载着
 大量用户资产，并且本系统还未经过长期市场考验，因此增加了relay权限，以降低安全风险。
 
-### 七、待解决的问题
- 
-*1. 多中继通道无法协调工作*
-由于引入section机制，为整个IBC逻辑增加了复杂度，当前多个中继通道并存会导致互相协调失败，从而导致IBC系统无法工作。
-解决办法是在合约和插件中增强完善对sction的管理，从而做到多中继通道并存，提高整个IBC系统的可靠性。
 
-
-### 八、升级计划
+### 七、升级计划
 
 *1. 兼容pbft*
 
@@ -257,7 +252,7 @@ ibc_plugin主要参考了net_plugin的框架。
 *3. 支持token以外其他类型数据的跨链*
 
 
-### 九、参考
+### 八、参考
 [Inter-blockchain Communication via Merkle Proofs with EOS.IO](https://steemit.com/eos/@dan/inter-blockchain-communication-via-merkle-proofs-with-eos-io) *Bytemaster*    
 [Bitcoin](https://bitcoin.org/bitcoin.pdf) *Satoshi Nakamoto*   
 [Chain Interoperability](https://static1.squarespace.com/static/55f73743e4b051cfcc0b02cf/t/5886800ecd0f68de303349b1/1485209617040/Chain+Interoperability.pdf) *Vitalik Buterin*   
