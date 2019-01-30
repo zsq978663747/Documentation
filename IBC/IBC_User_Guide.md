@@ -1,4 +1,4 @@
-IBC User Manual
+IBC User Guide
 -------
 
 ### 1. Preface
