@@ -191,7 +191,7 @@ bp schedule需要占用大量空间，因此在另外的表`prodsches`中存储�
 *5. Section*
 Section是chaindb的核心概念和创新，意思是一段连续的区块头，Section的管理也是最ibc.chain的核心的逻辑。
 使用section的目的是降低cpu消耗，只有在BP schedule有变化或有跨链交易时才需要同步一部分区块头。
-任何section的起始区块不能是 bp schedule 更换过程中的区块，也就是说，任何一个seciton的起始区块的`pending_schedule.version`必须等于
+任何section的起始区块不能是 bp schedule 更换过程中的区块，也就是说，任何一个section的起始区块的`pending_schedule.version`必须等于
 `active_schedule.version`，并且一个section的起始区块头的`active_schedule`必须和前一个section最后区块的`active_schedule`相同，
 这样就保证了在任意两个section之间一定不存在BP schedule的更换，每一此BP schedule更换的完整过程必须在某个section中完成，从而确保
 section数据的可信性。
@@ -216,7 +216,7 @@ cash函数中会给目标用户发行对应的token；等cash交易所在的区�
 2，对于每一个cash交易，必须将其相关信息传回原链执行cashconfirm，以消除合约中记录的原始交易信息，否则会出现即在目的链上给用户发行了token，
 又将原链的token退还给了用户。  
 
-cash函数是ibc.token的核心逻辑，`ibc.token`合约中记录着最近执行cash的原始交易id，即`oirg_trx_id`，并且新的cash的`orig_trx`的区块编号必须
+cash函数是ibc.token的核心逻辑，`ibc.token`合约中记录着最近执行cash的原始交易id，即`orig_trx_id`，并且新的cash的`orig_trx`的区块编号必须
 大于或等于所有`orig_trx`所在的区块编号，也就是说必须按原始交易在原链按区块的顺序进行cash，（执行cash时，原链某个区块内的跨链交易顺序是无关紧要的）
 ，再结合trx_id检查，可以确保一笔跨链交易只能执行一次cash。
 
