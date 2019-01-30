@@ -1,6 +1,6 @@
 EOSIO IBC Priciple and Design
 ---------
-(BOSCORE TEAM)
+*Author:Simon [Github](https://github.com/vonhenry)*
 
 This paper introduces the technical principle of IBC, the contracts and ibc_plugin developed by boscore team.
 

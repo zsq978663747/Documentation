@@ -1,6 +1,6 @@
 EOSIO跨链通信原理与设计
 -------
-(BOSCORE TEAM)
+*Author:Simon [Github](https://github.com/vonhenry)*
 
 本文将介绍IBC技术原理，并对BOSCORE团队开发的IBC合约及插件进行深入介绍。
 
