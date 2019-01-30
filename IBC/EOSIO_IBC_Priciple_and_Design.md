@@ -6,7 +6,7 @@ This paper introduces the technical principle of IBC, the contracts and ibc_plug
 
 In order to realize the inter-blockchain transfer of token between two EOSIO blockchains, first, we need to 
 solve two problems: 1. How to realize the lightweight client, 2. How to ensure the integrity and reliability 
-of inter-blockchain transactions, how to prevent double flower and replay attacks.
+of inter-blockchain transactions, how to prevent double spend and replay attacks.
 
 The EOS mainnet and BOS mainnet are illustrated below. However, this document applicable for
 any two EOSIO architecture blockchains.
@@ -306,7 +306,7 @@ Combined with trx_id checking, we can ensure that a cross-chain transaction can 
 
 Similarly, the cashconfirm action checks the cash transaction number `seq_num', which must be incremented one by one 
 to ensure that all cash transactions on the destination chain delete the original transaction record on the original chain.
-This ensures that there will be no double flowers.
+This ensures that there will be no double spend.
 
 
 ### 5. ibc_plugin 
