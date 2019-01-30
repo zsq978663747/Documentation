@@ -3,7 +3,7 @@
 ## BOSCore Technical White Paper
 
 - [English](BOSCoreTechnicalWhitePaper.md)
-- [中文](zh-CN/BOSCoreTechnicalWhitePaper.md) 
+- [中文](BOSCoreTechnicalWhitePaper_zh.md) 
 
 
 
