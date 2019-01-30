@@ -1,59 +1,68 @@
-# IBC 用户协议
-## 简介
+IBC User Manual
+-------
 
-当将一条链上的token信息向本链和对方链的ibc.token合约注册此token信息后，ibc系统开始接受对此token的跨链交易。ibc系统支持两端链上任意多种token的跨链需求。
-
-ibc系统在一条链上只有一个ibc.token合约，原链上被映射的多种token都会在本合约中进行管理。
-
-对需要跨链的token合约的需求：
-- 第一：其transfer接口必须和 “eosio.token”合约的transfer接口定义完全相同
-- 第二：其transfer函数中必须包含 require_recipient( to ); 语句
-
-在一个token被注册后
-- eosio用户调用被承接token的transfer接口并提供适当的memo信息，即可完成资产从原链到token映射链的转移。
-- eosio用户调用ibc.token合约transfer接口并提供适当的memo信息，即可完成映射资产转回原链的操作。
-
-## 跨链合约账户
-
-为了保证统一的用户使用体验，在EOS主网和BOS主网上同时都会使用 `bosibc.io` 这个账户来部署，用户可以通过在 `memo` 里面指定是那条链。
-
-*注: 感谢 StartEOS 团队的贡献的 EOS主网账户 `bosibc.io`*
+### 1. Preface
+On the two blockchains between which realized inter-blockchain communication, 
+any token conforming to the `eosio.token specification` can register and use the IBC channel for inter-blockchain transfer.
+This article describes the IBC user interface and provides command line examples.
 
 
-## Memo Schema 
-
-转账Memo格式:
-```
-    ACCOUNTNAME@CHAINNAME TRANSFER_MESSAGE
-    账户名@链名 转账备注
+### 2. "transfer" action 
+source code:
+``` 
+    [[eosio::action]]
+    void transfer( name from, name to, asset quantity, string memo );
 ```
 
-举例：
+*1. "to" account*
+The "to" account must be the account which deploied ibc.token contract. In BOS-EOS IBC system, the "to" account on 
+both EOS mainnet and BOS mainnet are **bosibc.io**.
 
-- 从 EOS主网账户`eosuser1`转账100 EOS 到 BOS主网 `bosuser2`
+*2. "quantity"*
+The token must be registered, and the quantity amount must satisfies this token's constraints, 
+
+*3. "memo" format*
+memo format for ibc transaction is very important, because you should provide acceptance accounts on peer chain in memo string. format is:
 ```
-    cleos transfer eosuser1 bosibc.io "100.0000 EOS" "bosuser2@bos 这是一笔EOS到BOS的跨链转账"
+    {account_name}@{chain_name} {user-defined string}
+ 
+    {user-defined string} is optinal
+    {chain_name} is defined by "peerchain_name" in ibc.token's "globals" table.
+    
+    examples:
+    'bosaccount11@bos happy new year 2019'
+    'eosaccount11@eos'
 ```
 
-- 从 BOS主网账户`bosuser2`转账100 EOS 到 EOS主网 `eosuser1`
+note: if you want to transfer token to "to" account itself, not want a ibc transaction, the memo string must star
+with "local", otherwise the transaction will fail. source code refer `token::transfer_notify()` and ` token::transfer()`
+in ibc.token contract.
+
+
+### 3. Command Line Examples
+Transfer 100 EOS from EOS mainnet account `eosaccount` to BOS mainnet `bosaccount`
 ```
-    cleos transfer bosuser2 bosibc.io "100.0000 EOS" "eosuser1@eos 这是一笔BOS到EOS的跨链转账"
+    cleos -u <eos-mainnet-api> transfer eosaccount bosibc.io "100.0000 EOS" "bosaccount@bos hello!"
+```
+
+Withdraw 100 EOS from BOS mainnet account `bosaccount` to EOS mainnet `eosaccount2`
+```
+    cleos -u <bos-mainnet-api> transfer -c bosibc.io bosaccount bosibc.io "100.0000 EOS" "eosaccount2@eos hi!"
 ``` 
 
-说明： 
-  - 单笔转账最小额度 0.2 EOS/BOS
-  - 单笔最大额度 1000 EOS/BOS
-  - 每分钟支持 200 笔跨链交易
-  - 单向收取手续费，定额 0.1 EOS/BOS
-  - 到账时间 4-5 分钟
+After send transfer action, and waiting for 4 to 5 minutes, you can go to the peer chains to check if you have received the token.
 
-因此用户使用现有的手机app钱包即可完成跨链资产，但需要现有的钱包增加支持ibc.token合约，支持也很简单，因为ibc.token合约的transfer接口定义和eosio.token的transfer定义完全相同，手机app钱包也可以提供专有的的界面，增强用户体验。
+So users can transfer assets across the chains by using any existing mobile app eosio wallets, 
+the existing wallets only need to support the ibc.token contract, because the transfer action interface definition of ibc.token 
+contract is exactly the same as that of eosio.token contract
 
 
-
-
-
-
-
-
-
+### 4. Token Quotas
+All token quotas are defined in ibc.token contracts, take bosibc.io as an example of ibc.token contract, 
+you can get them by following command:
+``` 
+cleos -u <eos-mainnet-api> get table bosibc.io bosibc.io accepts
+cleos -u <eos-mainnet-api> get table bosibc.io bosibc.io stats
+cleos -u <bos-mainnet-api> get table bosibc.io bosibc.io accepts
+cleos -u <bos-mainnet-api> get table bosibc.io bosibc.io stats
+```
