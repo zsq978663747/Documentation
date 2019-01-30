@@ -23,16 +23,16 @@ The token must be registered, and the quantity amount must satisfies this token'
 
 *3. "memo" format*
 memo format for ibc transaction is very important, because you should provide acceptance accounts on peer chain in memo string. format is:
-```
-{account_name}@{chain_name} {user-defined string}
 
-{user-defined string} is optinal
-{chain_name} is defined by "peerchain_name" in ibc.token's "globals" table.
+**{account_name}@{chain_name} {user-defined string}**
 
-examples:
-'bosaccount11@bos happy new year 2019'
-'eosaccount11@eos'
-```
+{user-defined string} is optinal  
+{chain_name} is defined by "peerchain_name" in ibc.token's "globals" table.  
+
+examples:  
+'bosaccount11@bos happy new year 2019'  
+'eosaccount11@eos'  
+
 
 note: if you want to transfer token to "to" account itself, not want a ibc transaction, the memo string must star
 with "local", otherwise the transaction will fail. source code refer `token::transfer_notify()` and ` token::transfer()`
