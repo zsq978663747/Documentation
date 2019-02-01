@@ -20,15 +20,15 @@ ibc.chain 主要用于两条链中继节点通信使用。
 ## IBC部署环境
 ### 中继节点部署
 按照eos主链或侧链节点要求，获取源码添加ibc plugin插件。
-（详细信息参见部署文档）
+（详细信息参见[部署文档](https://github.com/vlbos/Documentation-1/blob/master/IBC/Deployment/README_CN.md)）
 ### 中继合约部署
 按照部署文档获取预编译合约文件或从源码编译合约。
 创建中继合约账户部署
-（详细信息参见部署文档）
+（详细信息参见[部署文档](https://github.com/vlbos/Documentation-1/blob/master/IBC/Deployment/README_CN.md)）
 ## IBC参数初始化
 设置IBC 基本参数，进行初始值设置。如注册代币token.
 ### 注册token
-注册token操作步骤如下（详细信息参见注册token注册及管理文档）：
+注册token操作步骤如下（详细信息参见[注册token注册及管理文档](https://github.com/vlbos/Documentation-1/blob/master/IBC/Token_Registration_and_Management.md)）：
 下面的两步骤都是token合约操作的，如果想要注册token，请联系我们并且提供相关的信息。
 
 #### 在kylin测试网上，通过中继合约进行token的注册

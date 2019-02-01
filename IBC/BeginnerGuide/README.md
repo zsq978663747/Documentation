@@ -20,15 +20,15 @@ IBC tokens are required to be registered and initialized by the relay contract i
 ## IBC Deployment Environment
 ### Relay node deployment
 According to the requirements of the eos main chain or side chain node, get the source code to add the ibc plugin plugin.
-(See the deployment documentation for details)
+(See the [deployment documentation](https://github.com/vlbos/Documentation-1/blob/master/IBC/Deployment/README.md) for details)
 ### Trunk contract deployment
 Obtain the precompiled contract file according to the deployment documentation or compile the contract from source.
 Create a trunk contract account deployment
-(See the deployment documentation for details)
+(See the [deployment documentation](https://github.com/vlbos/Documentation-1/blob/master/IBC/Deployment/README.md) for details)
 ## IBC parameter initialization
 Set the IBC basic parameters and set the initial values. Such as registering tokens token.
 ### Register token
-The procedure for registering the token is as follows (see Registering the Token Registration and Management Document for details):
+The procedure for registering the token is as follows (see Registering the [Token Registration and Management Document](https://github.com/vlbos/Documentation-1/blob/master/IBC/Token_Registration_and_Management.md) for details):
 The following two steps are all operated on the token contract. If you want to register the token, please contact us and provide relevant information.
 
 #### On the kylin test network, register the token through the relay contract
