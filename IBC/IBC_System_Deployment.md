@@ -101,19 +101,19 @@ $cleos1 push action ${contract_token} setglobal '["ibc3chain333","bostest","ibc3
 
 - ibc.chain and ibc.token contracts on BOS testnet  
 ```bash
-cleos1='cleos -u <Kylin testnet http endpoint>'
+cleos2='cleos -u <BOS testnet http endpoint>'
 contract_chain=ibc3token333
 contract_token=ibc3chain333
 contract_token_pubkey='<public key of contract_token>'
 
-$cleos1 set contract ${contract_chain} <contract_chain_folder> -x 1000 -p ${contract_chain}
-$cleos1 set contract ${contract_token} <contract_token_folder> -x 1000 -p ${contract_token}
+$cleos2 set contract ${contract_chain} <contract_chain_folder> -x 1000 -p ${contract_chain}
+$cleos2 set contract ${contract_token} <contract_token_folder> -x 1000 -p ${contract_token}
 
-$cleos1 push action ${contract_chain} setglobal '[{"lib_depth":85}]' -p ${contract_chain}
-$cleos1 push action ${contract_chain} relay '["add","ibc3relay333"]' -p ${contract_chain}
+$cleos2 push action ${contract_chain} setglobal '[{"lib_depth":85}]' -p ${contract_chain}
+$cleos2 push action ${contract_chain} relay '["add","ibc3relay333"]' -p ${contract_chain}
 
-$cleos1 set account permission ${contract_token} active '{"threshold": 1, "keys":[{"key":"'${contract_token_pubkey}'", "weight":1}], "accounts":[ {"permission":{"actor":"'${contract_token}'","permission":"eosio.code"},"weight":1}], "waits":[] }' owner -p $ {contract_token}
-$cleos1 push action ${contract_token} setglobal '["ibc3chain333","kylin","ibc3token333",5000,1000,10,true]' -p ${contract_token}
+$cleos2 set account permission ${contract_token} active '{"threshold": 1, "keys":[{"key":"'${contract_token_pubkey}'", "weight":1}], "accounts":[ {"permission":{"actor":"'${contract_token}'","permission":"eosio.code"},"weight":1}], "waits":[] }' owner -p $ {contract_token}
+$cleos2 push action ${contract_token} setglobal '["ibc3chain333","kylin","ibc3token333",5000,1000,10,true]' -p ${contract_token}
 ```
 
 
