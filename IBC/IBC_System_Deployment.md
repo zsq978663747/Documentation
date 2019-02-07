@@ -45,7 +45,7 @@ ibc-chain-contract = ibc3chain333
 ibc-relay-name = ibc3relay333
 ibc-relay-private-key = <the pulic key of ibc3relay333>=KEY:<the private key of ibc3relay333>
 
-ibc-sidechain-id = <peer chain id>
+ibc-sidechain-id = <BOS testnet chain id>
 ibc-peer-private-key = <ibc peer public key>=KEY:<ibc peer private key>
 
 # ------------------- p2p peers -------------------#
@@ -69,7 +69,7 @@ ibc-chain-contract = ibc3chain333
 ibc-relay-name = ibc3relay333
 ibc-relay-private-key = <the pulic key of ibc3relay333>=KEY:<the private key of ibc3relay333>
 
-ibc-sidechain-id = <peer chain id>
+ibc-sidechain-id = <Kylin testnet chain id>
 ibc-peer-private-key = <ibc peer public key>=KEY:<ibc peer private key>
 
 # ------------------- p2p peers -------------------#
