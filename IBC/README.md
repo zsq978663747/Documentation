@@ -1,51 +1,70 @@
-# IBC User Guide
-## Introduction
+IBC User Guide
+-------
 
-When the token information on one chain is registered to the ibc.token contract of its own chain and the other chain, the ibc system begins to accept the cross-chain transaction for this token. The ibc system supports cross-chain requirements for any number of tokens on both ends of the chain.
-
-The ibc system has only one ibc.token contract on a chain, and multiple tokens mapped on the original chain are managed in this contract.
-
-Need for token contracts that require cross-chain:
-- First: its transfer interface must be identical to the transfer interface definition of the "eosio.token" contract.
-- Second: its transfer function must contain require_recipient( to ); statement
-
-After a token is registered
-- The eosio user invokes the transfer interface of the token and provides the appropriate memo information to complete the transfer of the asset from the original chain to the token mapping chain.
-- The eosio user invokes the ibc.token contract transfer interface and provides the appropriate memo information to complete the operation of mapping the assets back to the original chain.
-
-## Cross-chain contract account
-
-In order to ensure a unified user experience, both the EOS main network and the BOS main network will be deployed using the account `bosibc.io`. The user can specify the chain in `memo`.
-
-*Note: StartEOS contributed the EOS mainnet account `bosibc.io`; as the encouragement for the community contributions, the `io` in BOS mainnet will be delivered to StartEOS.*
+### 1. Preface
+On the two blockchains between which realized inter-blockchain communication, 
+any token conforming to the `eosio.token specification` can register and use the IBC channel for inter-blockchain transfer.
+This article describes the IBC user interface and provides command line examples.
 
 
-## Memo Schema
-
-Transfer Memo format:
-```
-    ACCOUNTNAME@CHAINNAME TRANSFER_MESSAGE
-    Account name@chain name Transfer note
+### 2. "transfer" action 
+source code:
+``` 
+[[eosio::action]]
+void transfer( name from, name to, asset quantity, string memo );
 ```
 
-Example:
+*1. "to" account*
+The "to" account must be the account which deploied ibc.token contract. In BOS-EOS IBC system, the "to" account on 
+both EOS mainnet and BOS mainnet are **bosibc.io**.  
+*Note: StartEOS contributed the EOS mainnet account `bosibc.io`; as the encouragement for the community contributions, 
+the short-name `io` in BOS mainnet will be delivered to StartEOS.*
 
-- Transfer 100 EOS from the EOS main network account `eosuser1` to the BOS main network `bosuser2`
-```
-    Cleos transfer eosuser1 bosibc.io "100.0000 EOS" "bosuser2@bos This is a cross-chain transfer from EOS to BOS"
+*2. "quantity"*
+The token must be registered, and the quantity amount must satisfies this token's constraints, 
+
+*3. "memo" format*
+memo format for ibc transaction is very important, because you should provide acceptance accounts on peer chain in memo string. format is:
+
+**{account_name}@{chain_name} {user-defined string}**
+
+{user-defined string} is optinal  
+{chain_name} is defined by "peerchain_name" in ibc.token's "globals" table.  
+
+examples:  
+'bosaccount11@bos happy new year 2019'  
+'eosaccount11@eos'  
+
+
+note: if you want to transfer token to "to" account itself, not want a ibc transaction, the memo string must star
+with "local", otherwise the transaction will fail. source code refer `token::transfer_notify()` and ` token::transfer()`
+in ibc.token contract.
+
+
+### 3. Command Line Examples
+Transfer 100 EOS from EOS mainnet account `eosaccount` to BOS mainnet `bosaccount`
+```bash
+$cleos -u <eos-mainnet-api> transfer eosaccount bosibc.io "100.0000 EOS" "bosaccount@bos hello!"
 ```
 
-- Transfer 100 EOS from BOS main network account `bosuser2` to EOS main network `eosuser1`
-```
-    Cleos transfer bosuser2 bosibc.io "100.0000 EOS" "eosuser1@eos This is a cross-chain transfer from BOS to EOS"
-```
+Withdraw 100 EOS from BOS mainnet account `bosaccount` to EOS mainnet `eosaccount2`
+```bash
+$cleos -u <bos-mainnet-api> transfer -c bosibc.io bosaccount bosibc.io "100.0000 EOS" "eosaccount2@eos hi!"
+``` 
 
-Tips:
-  - the minimum transfer number is 0.2 EOS/BOS
-  - the maximum transfer number is 1000 EOS/BOS
-  - the tps of IBC transfer is 200
-  - one-way transfer fee is 0.1 EOS/BOS
-  - transfer effective time is 4-5 minutes
-  
+After send transfer action, and waiting for 4 to 5 minutes, you can go to the peer chains to check if you have received the token.
 
-Therefore, the user can complete the cross-chain asset using the existing mobile phone app wallet, but the existing wallet needs to support the ibc.token contract. The support is also very simple, because the transfer interface definition of the ibc.token contract and the transfer definition of eosio.token. The exact same, mobile app wallet can also provide a proprietary interface to enhance the user experience.
+So users can transfer assets across the chains by using any existing mobile app eosio wallets, 
+the existing wallets only need to support the ibc.token contract, because the transfer action interface definition of ibc.token 
+contract is exactly the same as that of eosio.token contract
+
+
+### 4. Token Quotas
+All token quotas are defined in ibc.token contracts, take bosibc.io as an example of ibc.token contract, 
+you can get them by following command:
+``` 
+$cleos -u <eos-mainnet-api> get table bosibc.io bosibc.io accepts
+$cleos -u <eos-mainnet-api> get table bosibc.io bosibc.io stats
+$cleos -u <bos-mainnet-api> get table bosibc.io bosibc.io accepts
+$cleos -u <bos-mainnet-api> get table bosibc.io bosibc.io stats
+```
