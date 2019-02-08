@@ -147,7 +147,7 @@ $cleos1 push action ${contract_token} regpegtoken \
     "100000.0000 BOS",100,"'${bos_admin}'","eosio.token","4,BOS","fixed","0.0500 BOS",0.0,true]' -p ${contract_token}
 ```
 
-### Send IBC transaction
+### Send IBC Transactions
 
 - create some accounts on both chains  
 ```bash
