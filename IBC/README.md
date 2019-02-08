@@ -16,7 +16,7 @@ void transfer( name from, name to, asset quantity, string memo );
 
 *1. "to" account*
 The "to" account must be the account which deploied ibc.token contract. In BOS-EOS IBC system, the "to" account on 
-both EOS mainnet and BOS mainnet are **bosibc.io**.
+both EOS mainnet and BOS mainnet are **bosibc.io**.  
 *Note: StartEOS contributed the EOS mainnet account `bosibc.io`; as the encouragement for the community contributions, 
 the short-name `io` in BOS mainnet will be delivered to StartEOS.*
 
