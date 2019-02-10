@@ -3,25 +3,26 @@ IBC User Guide
 
 ### 1. Preface
 On the two blockchains between which realized inter-blockchain communication, 
-any token conforming to the `eosio.token specification` can register and use the IBC channel for inter-blockchain transfer.
-This article describes the IBC user interface and provides command line examples.
+any token conforming to the `eosio.token specification` can register and use the IBC channel for inter-blockchain transfer
+, please refer to [Token Registration and Management](IBC/Token_Registration_and_Management.md) for more information.
+This article describes the IBC user interface and given command line examples.
 
 
 ### 2. "transfer" action 
-source code:
+function definition:
 ``` 
 [[eosio::action]]
 void transfer( name from, name to, asset quantity, string memo );
 ```
 
 *1. "to" account*
-The "to" account must be the account which deploied ibc.token contract. In BOS-EOS IBC system, the "to" account on 
+The "to" account must be the account which deployed ibc.token contract. In BOS-EOS IBC system, the "to" account on 
 both EOS mainnet and BOS mainnet are **bosibc.io**.  
 *Note: StartEOS contributed the EOS mainnet account `bosibc.io`; as the encouragement for the community contributions, 
 the short-name `io` in BOS mainnet will be delivered to StartEOS.*
 
 *2. "quantity"*
-The token must be registered, and the quantity amount must satisfies this token's constraints, 
+The token must be registered, and the quantity amount must satisfies this token's quotas, see [Token Quotas](#4-token-quotas).
 
 *3. "memo" format*
 memo format for ibc transaction is very important, because you should provide acceptance accounts on peer chain in memo string. format is:
