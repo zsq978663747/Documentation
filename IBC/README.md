@@ -53,7 +53,20 @@ Withdraw 100 EOS from BOS mainnet account `bosaccount` to EOS mainnet `eosaccoun
 $cleos -u <bos-mainnet-api> transfer -c bosibc.io bosaccount bosibc.io "100.0000 EOS" "eosaccount2@eos hi!"
 ``` 
 
-After send transfer action, and waiting for 4 to 5 minutes, you can go to the peer chains to check if you have received the token.
+Transfer 100 BOS from BOS mainnet account `bosaccount` to EOS mainnet `eosaccount`
+```bash
+$cleos -u <bos-mainnet-api> transfer bosaccount bosibc.io "100.0000 BOS" "eosaccount@eos hello!"
+```
+
+Withdraw 100 BOS from EOS mainnet account `eosaccount` to BOS mainnet `bosaccount2`
+```bash
+$cleos -u <eos-mainnet-api> transfer -c bosibc.io eosaccount bosibc.io "100.0000 BOS" "bosaccount2@bos hi!"
+``` 
+
+After send transfer action, and waiting for **4 to 5 minutes** (in the case of BPs schedule replacement, it may need up to 8 minutes), 
+you can go to the peer chains to check if you have received the token.
+It takes so long to wait because that it has to wait for the transaction to enter LIB then start IBC operations,
+for more IBC theory please refer to [EOSIO IBC Priciple and Design](IBC/EOSIO_IBC_Priciple_and_Design.md).
 
 So users can transfer assets across the chains by using any existing mobile app eosio wallets, 
 the existing wallets only need to support the ibc.token contract, because the transfer action interface definition of ibc.token 
@@ -62,6 +75,7 @@ contract is exactly the same as that of eosio.token contract
 
 ### 4. Token Quotas
 All token quotas are defined in ibc.token contracts, take bosibc.io as an example of ibc.token contract, 
+please refer to [Token Registration and Management](IBC/Token_Registration_and_Management.md) for detailed explanation.
 you can get them by following command:
 ``` 
 $cleos -u <eos-mainnet-api> get table bosibc.io bosibc.io accepts
@@ -69,3 +83,27 @@ $cleos -u <eos-mainnet-api> get table bosibc.io bosibc.io stats
 $cleos -u <bos-mainnet-api> get table bosibc.io bosibc.io accepts
 $cleos -u <bos-mainnet-api> get table bosibc.io bosibc.io stats
 ```
+
+Currently registered token and quotas.
+
+*EOS of EOS mainnet*
+
+| Item | Value |
+|----------|-------------|
+| original token contract          | eosio.token |
+| original token symbol            | EOS |
+| peg token symbol                 | EOS |
+| maximum acceptance               | 10000000000.0000 EOS |
+| minimum once forward transfer    | **0.2000 EOS** |
+| maximum once forward transfer    | 1000000.0000 EOS |
+| maximum daily forward transfers  | 10000000.0000 EOS |
+| minimum once reverse withdrawal  | **0.2000 EOS** |
+| maximum once reverse withdrawal  | **1000.0000 EOS** |
+| maximum daily reverse withdrawal | 1000000.0000 EOS |
+| forward transfers success fee    | 0 EOS |
+| reverse withdrawal success fee   | **0.1000 EOS** |
+| forward transfers failed fee     | fixed 0.0500 EOS |
+| reverse withdrawal failed fee    | fixed 0.0500 EOS |
+| project name                     | - |
+| project official website         | - |
+
