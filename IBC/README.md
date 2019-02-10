@@ -86,7 +86,7 @@ $cleos -u <bos-mainnet-api> get table bosibc.io bosibc.io stats
 
 Currently registered token and quotas.
 
-*EOS of EOS mainnet*
+***EOS** of EOS mainnet*
 
 | Item | Value |
 |----------|-------------|
@@ -100,6 +100,8 @@ Currently registered token and quotas.
 | minimum once reverse withdrawal  | **0.2000 EOS** |
 | maximum once reverse withdrawal  | **1000.0000 EOS** |
 | maximum daily reverse withdrawal | 1000000.0000 EOS |
+| maximum transfers per minute     | 100 |
+| maximum withdrawals per minute   | 100 |
 | forward transfers success fee    | 0 EOS |
 | reverse withdrawal success fee   | **0.1000 EOS** |
 | forward transfers failed fee     | fixed 0.0500 EOS |
@@ -107,3 +109,50 @@ Currently registered token and quotas.
 | project name                     | - |
 | project official website         | - |
 
+
+***BOS** of BOS mainnet*
+
+| Item | Value |
+|----------|-------------|
+| original token contract          | eosio.token |
+| original token symbol            | BOS |
+| peg token symbol                 | BOS |
+| maximum acceptance               | 10000000000.0000 BOS |
+| minimum once forward transfer    | **0.2000 BOS** |
+| maximum once forward transfer    | 1000000.0000 BOS |
+| maximum daily forward transfers  | 10000000.0000 BOS |
+| minimum once reverse withdrawal  | **0.2000 BOS** |
+| maximum once reverse withdrawal  | **1000.0000 BOS** |
+| maximum daily reverse withdrawal | 1000000.0000 BOS |
+| maximum transfers per minute     | 100 |
+| maximum withdrawals per minute   | 100 |
+| forward transfers success fee    | 0 BOS |
+| reverse withdrawal success fee   | **0.1000 BOS** |
+| forward transfers failed fee     | fixed 0.0500 BOS |
+| reverse withdrawal failed fee    | fixed 0.0500 BOS |
+| project name                     | boscore |
+| project official website         | boscore.io |
+
+
+***TPT** of EOS mainnet*
+
+| Item | Value |
+|----------|-------------|
+| original token contract          | eosiotptoken |
+| original token symbol            | TPT |
+| peg token symbol                 | TPT |
+| maximum acceptance               | 5900000000.0000 TPT |
+| minimum once forward transfer    | **100.0000 TPT** |
+| maximum once forward transfer    | 10000000.0000 TPT |
+| maximum daily forward transfers  | 100000000.0000 TPT |
+| minimum once reverse withdrawal  | **100.0000 TPT** |
+| maximum once reverse withdrawal  | **10000000.0000 TPT** |
+| maximum daily reverse withdrawal | 100000000.0000 TPT |
+| maximum transfers per minute     | 50 |
+| maximum withdrawals per minute   | 50 |
+| forward transfers success fee    | 0 TPT |
+| reverse withdrawal success fee   | **60.0000 TPT** |
+| forward transfers failed fee     | fixed 30.0000 TPT |
+| reverse withdrawal failed fee    | fixed 30.0000 TPT |
+| project name                     | TokenPocket |
+| project official website         | tokenpocket.pro |
