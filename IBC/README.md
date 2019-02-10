@@ -84,7 +84,9 @@ $cleos -u <bos-mainnet-api> get table bosibc.io bosibc.io accepts
 $cleos -u <bos-mainnet-api> get table bosibc.io bosibc.io stats
 ```
 
-Currently registered token and quotas.
+**Example Registered Tokens and Their Quotas**  
+The following values are for reference only, possibly inconsistent with settings in ibc.token contracts, 
+please query the contract with above commands for real-time quota.
 
 ***EOS** of EOS mainnet*
 
