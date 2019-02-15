@@ -20,3 +20,9 @@ BOSCore bases on EOSIO, so you can also referer EOS.IO Technical White Paper:
 - [Token Registration and Management](IBC/Token_Registration_and_Management.md)
 - [IBC System Deployment](IBC/IBC_System_Deployment.md)
 
+### BOS Batch-PBFT / LIB Acceleration Solution docs
+- [BOS LIB Acceleration Solution: Batch PBFT](LIB/BOS_Batch_PBFT_I.md)
+- [BOS Batch-PBFT Upgrade Solution](LIB/BOS_Batch_PBFT_II.md)
+
+
+
