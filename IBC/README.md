@@ -100,7 +100,7 @@ please query the contract with above commands for real-time quota.
 | maximum once forward transfer    | 1000000.0000 EOS |
 | maximum daily forward transfers  | 10000000.0000 EOS |
 | minimum once reverse withdrawal  | **0.2000 EOS** |
-| maximum once reverse withdrawal  | **1000.0000 EOS** |
+| maximum once reverse withdrawal  | **10000.0000 EOS** |
 | maximum daily reverse withdrawal | 1000000.0000 EOS |
 | maximum transfers per minute     | 100 |
 | maximum withdrawals per minute   | 100 |
@@ -124,7 +124,7 @@ please query the contract with above commands for real-time quota.
 | maximum once forward transfer    | 1000000.0000 BOS |
 | maximum daily forward transfers  | 10000000.0000 BOS |
 | minimum once reverse withdrawal  | **0.2000 BOS** |
-| maximum once reverse withdrawal  | **1000.0000 BOS** |
+| maximum once reverse withdrawal  | **100000.0000 BOS** |
 | maximum daily reverse withdrawal | 1000000.0000 BOS |
 | maximum transfers per minute     | 100 |
 | maximum withdrawals per minute   | 100 |
