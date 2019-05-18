@@ -38,7 +38,7 @@ All BOS community participants can submit proposals while staking 100 BOS to sub
 * The amount of the incentives, and receipt account (the account can be changed later)
 
 ### The conditions for the approved proposal:
-* The votes from token holders is not less than 10% of BP votes from token holders when the proposal was initiated.
+* The votes from token holders is not less than 40% of BP votes from token holders when the proposal was initiated.
 * The ratio of approved votes/disapproved is greater than 1.5.
 * The above conditions last for 20 days.
 
@@ -75,6 +75,4 @@ Any questions or enquiries you have, please feel free to contact us:
 Email: support@boscore.io  
 Telegram group: https://t.me/boscorecommunity  
 Twitter: https://twitter.com/Boscore_BOS  
-Facebook: https://www.facebook.com/BOSCoreOfficial 
-
-
+Facebook: https://www.facebook.com/BOSCoreOfficial
