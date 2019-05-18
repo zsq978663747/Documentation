@@ -38,7 +38,7 @@ All BOS community participants can submit proposals while staking 100 BOS to sub
 * The amount of the incentives, and receipt account (the account can be changed later)
 
 ### The conditions for the approved proposal:
-* The votes from token holders is not less than 10% of BP votes from token holders when the proposal was initiated.
+* The votes from token holders is not less than 40% of BP votes from token holders when the proposal was initiated.
 * The ratio of approved votes/disapproved is greater than 1.5.
 * The above conditions last for 20 days.
 
@@ -65,7 +65,7 @@ All BOS community participants can submit proposals while staking 100 BOS to sub
 * Is there a security bug?
 4. If the fund payment is frozen, the BOS independent auditor needs to publish the review within 7 days, make independent judgment in the contract, and issue a link to the relevant investigation report.
 5. Within two weeks after the auditor’s comments, BP needs to make a decision. If more than 2/3+1 active BPs agree to continue to pay the incentives, it will continue to pay 90% of the incentives; Otherwise the payment will be rejected.
-6. The 10% of the incentives for the proposal are equally divided between the auditors who agree with the majority of the BPs and the BPs who voted.
+6. The 40% of the incentives for the proposal are equally divided between the auditors who agree with the majority of the BPs and the BPs who voted.
 
 ![process](../imgs/flow_en.png)
 
@@ -75,6 +75,4 @@ Any questions or enquiries you have, please feel free to contact us:
 Email: support@boscore.io  
 Telegram group: https://t.me/boscorecommunity  
 Twitter: https://twitter.com/Boscore_BOS  
-Facebook: https://www.facebook.com/BOSCoreOfficial 
-
-
+Facebook: https://www.facebook.com/BOSCoreOfficial
