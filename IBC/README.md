@@ -20,8 +20,6 @@
 
 # IBC User Guide
 
--------
-
 ### 1. Preface
 On the two blockchains between which realized inter-blockchain communication, 
 any token conforming to the `eosio.token specification` can register and use the IBC channel for inter-blockchain transfer
