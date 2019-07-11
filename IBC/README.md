@@ -18,7 +18,7 @@
 * [《交易所接入文档》](https://github.com/vlbos/Documentation-1/blob/master/IBC/WalletAccess/README_CN.md)
 
 
-#IBC User Guide
+# IBC User Guide
 -------
 
 ### 1. Preface
