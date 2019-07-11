@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-#IBC  Contents
+
+# IBC  Contents
 
 * ["IBC Design Principles"](https://github.com/vlbos/Documentation-1/blob/master/IBC/EOSIO_IBC_Priciple_and_Design.md)
 * [Deployment Document](https://github.com/vlbos/Documentation-1/blob/master/IBC/Deployment/README.md)
@@ -23,7 +23,7 @@ IBC User Guide
 ### 1. Preface
 On the two blockchains between which realized inter-blockchain communication, 
 any token conforming to the `eosio.token specification` can register and use the IBC channel for inter-blockchain transfer
-, please refer to [Token Registration and Management](IBC/Token_Registration_and_Management.md) for more information.
+, please refer to [Token Registration and Management](Token_Registration_and_Management.md) for more information.
 This article describes the IBC user interface and given command line examples.
 
 
@@ -85,7 +85,7 @@ $cleos -u <eos-mainnet-api> transfer -c bosibc.io eosaccount bosibc.io "100.0000
 After send transfer action, and waiting for **4 to 5 minutes** (in the case of BPs schedule replacement, it may need up to 8 minutes), 
 you can go to the peer chains to check if you have received the token.
 It takes so long to wait because that it has to wait for the transaction to enter LIB then start IBC operations,
-for more IBC theory please refer to [EOSIO IBC Priciple and Design](IBC/EOSIO_IBC_Priciple_and_Design.md).
+for more IBC theory please refer to [EOSIO IBC Priciple and Design](EOSIO_IBC_Priciple_and_Design.md).
 
 So users can transfer assets across the chains by using any existing mobile app eosio wallets, 
 the existing wallets only need to support the ibc.token contract, because the transfer action interface definition of ibc.token 
@@ -94,7 +94,7 @@ contract is exactly the same as that of eosio.token contract
 
 ### 4. Token Quotas
 All token quotas are defined in ibc.token contracts, take bosibc.io as an example of ibc.token contract, 
-please refer to [Token Registration and Management](IBC/Token_Registration_and_Management.md) for detailed explanation.
+please refer to [Token Registration and Management](Token_Registration_and_Management.md) for detailed explanation.
 you can get them by following command:
 ``` 
 $cleos -u <eos-mainnet-api> get table bosibc.io bosibc.io accepts
@@ -119,7 +119,7 @@ please query the contract with above commands for real-time quota.
 | maximum once forward transfer    | 1000000.0000 EOS |
 | maximum daily forward transfers  | 10000000.0000 EOS |
 | minimum once reverse withdrawal  | **0.2000 EOS** |
-| maximum once reverse withdrawal  | **1000.0000 EOS** |
+| maximum once reverse withdrawal  | **10000.0000 EOS** |
 | maximum daily reverse withdrawal | 1000000.0000 EOS |
 | maximum transfers per minute     | 100 |
 | maximum withdrawals per minute   | 100 |
@@ -143,7 +143,7 @@ please query the contract with above commands for real-time quota.
 | maximum once forward transfer    | 1000000.0000 BOS |
 | maximum daily forward transfers  | 10000000.0000 BOS |
 | minimum once reverse withdrawal  | **0.2000 BOS** |
-| maximum once reverse withdrawal  | **1000.0000 BOS** |
+| maximum once reverse withdrawal  | **100000.0000 BOS** |
 | maximum daily reverse withdrawal | 1000000.0000 BOS |
 | maximum transfers per minute     | 100 |
 | maximum withdrawals per minute   | 100 |
