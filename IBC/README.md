@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-#IBC  Contents
+
+# IBC  Contents
 
 * ["IBC Design Principles"](https://github.com/vlbos/Documentation-1/blob/master/IBC/EOSIO_IBC_Priciple_and_Design.md)
 * [Deployment Document](https://github.com/vlbos/Documentation-1/blob/master/IBC/Deployment/README.md)
@@ -23,7 +23,7 @@ IBC User Guide
 ### 1. Preface
 On the two blockchains between which realized inter-blockchain communication, 
 any token conforming to the `eosio.token specification` can register and use the IBC channel for inter-blockchain transfer
-, please refer to [Token Registration and Management](IBC/Token_Registration_and_Management.md) for more information.
+, please refer to [Token Registration and Management](Token_Registration_and_Management.md) for more information.
 This article describes the IBC user interface and given command line examples.
 
 
