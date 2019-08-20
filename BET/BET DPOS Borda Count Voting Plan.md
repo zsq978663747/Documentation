@@ -135,13 +135,13 @@ BET will adapt the following F function:
 Proof:
 
 > Suppose that any voter holds the number of Tokens in his hand, that is, the number of votes, and only one vote at a time.   <br>
-> We limit each voter, assuming that any voter can vote for the number of votes held in their hands, that is, Pi, and only one vote at a time, so we can treat each voter as a collection of voters with the same willingness to vote, each with only one vote, further seeing this becomes a model for the Borda count to vote for the Borda count. <br>
+> We limit each voter, assuming that any voter can vote for the number of votes held in their hands, that is, Pi, and only one vote at a time, so we can treat **each voter as a collection of voters** with the same willingness to vote, each with only one vote, further seeing this becomes a model for the Borda count to vote for the Borda count. <br>
 > So it has the same theoretical characteristics as the Borda count system.
 
 Further, for any ticket holder Pi, since he needs to vote (sort) all candidates, that is, he contributes to any candidate, but the degree of contribution is according to function F. To do this, that is to say, set Pi>Pj and F(k)<F(l) for any k>l, then there are:
 
 
-	Pi/Pj > (∑F(i) * Pi)/(∑F(i) * Pj)
+	Pi/Pj > (∑F(i) * Pi)/(∑F(j) * Pj)
 
 
 Among them, i, j are ranked in the disadvantage position of the other party's sequence, so the comparison of one vote and more investment scheme obviously weakens the role of the ticket.
