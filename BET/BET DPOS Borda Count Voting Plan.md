@@ -167,7 +167,7 @@ Next, we will illustrate the features and advantages of the program through a fe
 ### Example One
 Suppose there are three voters A, B, and C. For the sake of discussion, let's assume that the candidates are the same three, and assume that they vote for themselves. Our voting principle is to choose two of the three to win.
 
-We assume that A, B, and C hold the number of tokens a, b, and c, respectively. If we assume conspiracy in a and b, if EOS's current voting system is adopted, c will lose the final right as long as `a+b>c`. But under the BET system, you need `a+2b>2c` to get the corresponding result. In the case where the differences among the candidates are not different, a and c can be elected.
+We assume that A, B, and C hold the number of tokens at, bt, and ct, respectively. If we assume conspiracy in A and B, if EOS's current voting system is adopted, C will lose the final right as long as `at+bt>ct`. But under the BET system, you need `at+2bt>2ct` to get the corresponding result. In the case where the differences among the candidates are not different, A and C can be elected.
 
 ### Example Two
 Consider another example of bribery. Let's assume that there is a large account A with 20M tokens. The support of other candidates is only between 1M and 6M. If the EOS strategy is adopted, then the other candidates cannot reach consesus. Under the premise, A can control the entire order of the elected person. Due to the strong control of A, many candidates will choose to trade with A, which will eventually lead to the further strengthening of A's control.
