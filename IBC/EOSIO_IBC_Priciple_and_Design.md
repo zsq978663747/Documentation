@@ -297,7 +297,7 @@ Preventing double-flower attacks can be divided into two stages:
 **cashconfirm** in order to remove the original transaction information recorded in the contract,
 otherwise, the token will be issued to the user on the destination chain, then the token on the original chain returned to the user.
 
-The **cash** function is the core logic of ibc.token. The `ibc.token` contract records the original transaction ids `oirg_trx_id`, 
+The **cash** function is the core logic of ibc.token. The `ibc.token` contract records the original transaction ids `orig_trx_id`, 
 which recently executed cash, and the block number of `orig_trx` of the new cash must be greater than or equal to 
 the highest block number of all `orig_trx`, that is to say, cash must be done in the order of blocks in the original 
 chain according to the original transaction. (When cash is executed, the order of cross-chain transactions 
