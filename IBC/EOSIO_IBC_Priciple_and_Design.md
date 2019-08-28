@@ -154,7 +154,7 @@ The core logic contains `blockroot_merkle`, `get_scheduled_producer()` and `veri
 The ibc.chain contract fully inherits the rigorous validity of forkdb.
 
 *2. How forkdb handles forks*  
-When adding a new block, which results in a different head.id for fordb and head.id for controller_impl, the branch is re-selected.
+When adding a new block, which results in a different head.id for forkdb and head.id for controller_impl, the branch is re-selected.
 source code refers to `eosio::chain::controller_impl::push_block()`and `eosio::chain::controller_impl::maybe_switch_forks()`;
 
 *3. How does LIB determine*  
