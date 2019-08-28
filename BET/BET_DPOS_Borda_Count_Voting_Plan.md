@@ -193,3 +193,4 @@ Vol. 58, No. 4 (Aug., 1950), pp. 328-346
 [^5]: Charles R. Hadlock. • ”Discrete Mathematical Models: With Applications to Social, Biological, and Environmental. Problems” byFred Roberts. ...... Prentice-Hall, Englewood Cliffs, N.J., 1976.
 
 [^6]: D.G.Saari  Mathematics and Voting
+
