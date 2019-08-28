@@ -174,4 +174,23 @@ Consider another example of bribery. Let's assume that there is a large account 
 
 But for the BET system, the situation will be different. For example, we use `(n+1-i)/n` as the F function, and n is assumed to be 25, then for the big user A, it is for the ith support. The contribution value that the account can provide is `(n+1-i)/n*2*10^7`. For example, when i is 20, the contribution value is 4.8 million; that is, when there is a Token held by a voter. When this value is exceeded, then choosing to work with this Token holder is a better strategy than working with A.
 
-Therefore, this can weaken the control power of A to a certain extent and at the same time ensure the interests of many stakeholders. At the same time, because the plan is aim to a voter must **fill for all 25 slots in order to cast a vote**, the voter is maximizing the profit for the benefit of the rational person. In addition to 
+Therefore, this can weaken the control power of A to a certain extent and at the same time ensure the interests of many stakeholders. At the same time, because the plan is aim to a voter must **fill for all 25 slots in order to cast a vote**, the voter is maximizing the profit for the benefit of the rational person. In addition to yourself, the remaining votes will be voted for the most stable candidates for the system, thus ensuring the security and stability of the system.
+
+## IV. Summary
+
+The design is a further exploration of the existing EOS voting system, with the research results of Saari et al., which can make the BET voting system more perfect, but as the Arrow impossible theorem says, when it is limited to certain conditions, the perfect voting plan does not exist. So we hope to better the current model under reasonable assumptions.
+
+
+[^1]: [Borda Count](https://en.wikipedia.org/wiki/Borda_count)
+
+[^2]: Kenneth J. Arrow: A Difficulty in the concept of social welfare. In Journal of Political Economy
+Vol. 58, No. 4 (Aug., 1950), pp. 328-346
+
+[^3]: B steven j Paradoxes in Politics: An Introduction to the Nonobvious in Political Science
+
+[^4]: Michel A. Habib and Alexander Ljungqvist  Firm Value and Managerial Incentives: A Stochastic Frontier Approach
+
+[^5]: Charles R. Hadlock. • ”Discrete Mathematical Models: With Applications to Social, Biological, and Environmental. Problems” byFred Roberts. ...... Prentice-Hall, Englewood Cliffs, N.J., 1976.
+
+[^6]: D.G.Saari  Mathematics and Voting
+
