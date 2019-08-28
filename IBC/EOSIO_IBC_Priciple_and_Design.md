@@ -33,7 +33,7 @@ any two EOSIO architecture blockchains.
   `merkle path` also known as `merkle branch`.
 
 - Block Producer Schedule  
-  The `BP Schedule` is a EOSIO architecture blockchain technology, which used to determine the rights that which 
+  The `BP Schedule` is a EOSIO architecture blockchain technology, which is used to determine the rights that which 
   producer can produce blocks. The new version `BP Schedule` comes into effect after passing the validation of
   the last batch of `BP Schedule`. In order to ensure strict handover of BP rights, it is a core technology of 
   IBC system logic, that the lightweight client must follow the corresponding `BP Schedule` with it's mainnet.
@@ -73,7 +73,7 @@ In the light client of Bitcoin and ETH, a starting block and some subsequent ver
 and the light client will synchronize the full block headers after that starting block. Bitcoin produces only 4 Mb 
 of block headers per year. According to the current storage capacity of mobile devices, it can be fully accommodated, 
 and synchronization of these blocks will not consume a lot of computing resources of mobile devices. However, 
-the situation of EOSIO is quite different. EOSIO contract consumes 0.5 milliseconds CPU add a block header to the contract 
+the situation of EOSIO is quite different. EOSIO contract consumes 0.5 milliseconds of CPU to add a block header to the contract 
 and 0.2 milliseconds to deleted a block header, so 0.7 ms of CPU is needed for every block header procession.
 Assuming that we want to synchronize all the block headers of the other EOSIO chain, according to the total CPU 
 time of each block, now is 200ms, that is to say, `0.7ms/200ms = 0.35%` of the whole chain is needed to achieve 
@@ -82,7 +82,7 @@ real-time full synchronization. According to the actual total amount of delgated
 transactions needs to be delgate `400 million * 0.35% = 1.4 million` token, which is a large amount. Because EOSIO 
 advocates multi side-chain ecosystem, let's assumed that there will be multiple side chains and EOSIO main network
 to achieve cross-chain in the future, and between side chains and side chains, and it also will realizes one-to-many
-cross-chains operation, assume to one-to-ten situation, each chain needs to maintain 10 light clients, 
+cross-chains operation, assuming the one-to-ten situation, each chain needs to maintain 10 light clients, 
 in order to maintain these light clients, it needs to consume 3.5% of the whole network CPU of a single chain,
 this proportion is too high, therefore, we need to find a more reasonable solution.
 
@@ -90,11 +90,11 @@ The process of designing inter-blockchain communication is a process of finding 
 Is there a scheme that does not need to synchronize the whole block information, but also can guarantee the credibility
 of light clients? The bottom of EOSIO source code has been prepared for this purpose.
 Let's assume that if BP schedule never change, then at any time, when the ibc.chain contract obtains a series of
-block headerss passed by signature verification, such as `n ~ n+336`, and more than two-thirds of the active BP
-is producing blocks, we can sure that the nth block is irreversible, and can be used to verify cross-chain transactions.
+block headers passed by signature verification, such as `n ~ n+336`, and more than two-thirds of the active BP
+is producing blocks, we can be sure that the `n`th block is irreversible, and can be used to verify cross-chain transactions.
 Later, we need to consider the situation of BP schedule replacement. When BP schedule replacement occurs, 
 we will not accept transaction verification until the replacement is completed. The relatively complex process
-of BP replacement is dealt with, which will be described in more detail bellow.
+of BP replacement is dealt with, which will be described in more detail below.
 Therefore, using this scheme can greatly reduce the amount of block headers that need to be synchronized,
 and only when the BP list is updated or cross-chain transactions occured, that it's needed synchronized block headers.
 
@@ -102,10 +102,10 @@ In order to achieve this goal, the concept of `section` is introduced in ibc.cha
 A section records a batch of continuous block headers. Section does not store block headers, instead, 
 it records the first block number (first) and the last block number (last) of the block header, block headers are
 stored in `chaindb`. Each section has a valid bool value. When there is no BP schedule replacement,
-As long as two-thirds of the active BP is producing block and `last - first > lib_depth`, then 
+as long as two-thirds of the active BP is producing blocks and `last - first > lib_depth`, then 
 the block of `first to last - lib_depth` is considered irreversible and can be used to verify cross-chain transactions.
 When BP schedule is replaced, the 'valid' of that section becomes false and no transaction validation is accepted 
-until schedule replacement finished and 'valid' become true, then continue cross-chain transaction validation.
+until schedule replacement is finished and 'valid' becomes true, then continue cross-chain transaction validation.
 
 
 #### 3.3 How to Ensure the Reliability of Light Clients
