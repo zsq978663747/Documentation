@@ -11,7 +11,8 @@ In the real world, if a merchant is not sure that he can receive the money, he w
 
 Some oracles are designed based on the assumption of a trusted data source or an authoritative data source. however this hypothesis is theoretically very risky and cannot guarantee the authenticity of the data source. The principles that BOS's oracle system follows from the beginning of its construction are:
 
-    BOS Oracle does not relying on each oracle provider's 100% credibility of the data they provided. BOS Oracle treat each oracle provider as a participant in the game, in order to achieve overall credibility in the game.
+    BOS Oracle does not relying on each oracle provider's 100% credibility of the data they provided. 
+    BOS Oracle treat each oracle provider as a participant in the game, in order to achieve overall credibility in the game.
 
 In this way, as long as the participants and the real world roles are mapped in the game, not only we can  obtain the trustworthiness of the blockchain input data , but also we can output "trust" to the real world. In fact, this is more like a trusted platform based on blockchain, and its service is a predictor. The BOS oracle will extend the value of the blockchain from its monetary attributes to the construction of transactions and rules. This extension will solve or improve many real-world trust problems, thereby expanding the application boundaries of the blockchain and ultimately let blockchain technology real-world scenarios other than transaction transfers.
 

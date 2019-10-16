@@ -1,7 +1,8 @@
 BOS.Oracle: Witness and Changes
 ----------
 
-    BOS Oracle does not relying on each oracle provider's 100% credibility of the data they provided. BOS Oracle treat each oracle provider as a participant in the game, in order to achieve overall credibility in the game.
+    BOS Oracle does not relying on each oracle provider's 100% credibility of the data they provided. 
+    BOS Oracle treat each oracle provider as a participant in the game, in order to achieve overall credibility in the game.
 
 
 ## 2.1 System Components
