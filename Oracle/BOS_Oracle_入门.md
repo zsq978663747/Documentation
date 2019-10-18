@@ -531,7 +531,7 @@ cleos transfer ${provider_account} ${contract_oracle} "1000.0000 BOS" "0,${servi
 ```
 
 **2. 申诉服务：**
-memo 说明：`"3,服务 ID,证据,公示信息,申诉原因"`
+memo 说明：`"3,服务 ID,证据,公示信息,申诉原因,角色"`
 
 ```
 cleos transfer ${initiator_account} ${contract_oracle} "200.0000 BOS" "3,${service_id},'evidence','info','reason','${role}'" -p ${initiator_account}    
