@@ -398,7 +398,7 @@ cleos get table ${contract_oracle} 4 arbicase
 转账抵押发起申诉：
 
 ```
-cleos transfer ${initiator_account} ${contract_oracle} "200.0000 BOS" "3,${service_id},'evidence','info','reason'" -p ${initiator_account} 
+cleos transfer ${initiator_account} ${contract_oracle} "200.0000 BOS" "3,${service_id},'evidence','info','reason','${role}'" -p ${initiator_account} 
 ```
 
 **转账抵押memo说明：**
@@ -408,6 +408,7 @@ cleos transfer ${initiator_account} ${contract_oracle} "200.0000 BOS" "3,${servi
 - `evidence`: 申诉时提交的证据，推荐为 IPFS 文件地址
 - `info`: 公示信息
 - `reason`: 申诉该服务的原因
+- `role`：表示发起诉讼的人的身份，1-代表数据使用者，2-代表数据提供者
 
 申诉命令发出后，会通过 transfer 发出通知，通知给所有受诉方，任何一个账户应诉（包含通知之外的账户），案件均可以成立。
 
@@ -533,7 +534,7 @@ cleos transfer ${provider_account} ${contract_oracle} "1000.0000 BOS" "0,${servi
 memo 说明：`"3,服务 ID,证据,公示信息,申诉原因"`
 
 ```
-cleos transfer ${initiator_account} ${contract_oracle} "200.0000 BOS" "3,${service_id},'evidence','info','reason'" -p ${initiator_account}    
+cleos transfer ${initiator_account} ${contract_oracle} "200.0000 BOS" "3,${service_id},'evidence','info','reason','${role}'" -p ${initiator_account}    
 ```
 
 **3. 注册仲裁员：**
