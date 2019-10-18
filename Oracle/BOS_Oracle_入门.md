@@ -207,7 +207,7 @@ cleos push action ${contract_oracle} unstakeasset '{"service_id":${service_id},"
 **参数说明：**
 
 - `service_id`：提供方想要解抵押的服务 ID
-- `provider_account`：想要解抵押的数据提供方账户
+- `account`：想要解抵押的数据提供方账户
 - `amount`：解抵押金额
 - `memo`：备注信息
 
@@ -221,7 +221,7 @@ cleos push action ${contract_oracle} pushdata '{"service_id":1,"provider":"${pro
 
 **参数说明：**
 - `service_id`：服务 ID
-- `provider_account`：数据提供方
+- `provider`：数据提供方
 - `cycle_number`：更新编号，编号是根据服务的 `update_cycle` 计算出来的，计算公式`cycle_number=当前秒数/update_cycle`；每一轮超过时间大于 `duration` 时，不允许上传数据
 - `request_id`：数据使用者发起请求时的 id，数据提供方上传数据需要对应，1.0 版本 `request_id` 为 0
 - `data`：为上传数据的内容，所有的数据提供方需按照服务的规定上传数据，否则将上传失败
@@ -301,7 +301,10 @@ cleos get table ${contract_oracle} 7 oracledata
 第一届全职仲裁员由21个指定的 BOS WPS Auditors 来担任；后期开放社区注册，为了保证仲裁有效且公正，仲裁员竞选者需要经过社区的投票，满足条件才有资格当选。注册时最低抵押金为 100000 BOS。
 
 转账抵押注册仲裁员：
-
+```
+cleos transfer ${arbitrator_account} ${contract_oracle} "100000.0000 BOS" "${num},${arbitrat_type}" -p ${arbitrator_account}  
+```
+例如：
 ```
 cleos transfer ${arbitrator_account} ${contract_oracle} "100000.0000 BOS" "4,1" -p ${arbitrator_account}  
 ```
@@ -398,7 +401,7 @@ cleos get table ${contract_oracle} 4 arbicase
 转账抵押发起申诉：
 
 ```
-cleos transfer ${initiator_account} ${contract_oracle} "200.0000 BOS" "3,${service_id},'evidence','info','reason'" -p ${initiator_account} 
+cleos transfer ${initiator_account} ${contract_oracle} "200.0000 BOS" "3,${service_id},'evidence','info','reason','${role}'" -p ${initiator_account} 
 ```
 
 **转账抵押memo说明：**
@@ -408,6 +411,7 @@ cleos transfer ${initiator_account} ${contract_oracle} "200.0000 BOS" "3,${servi
 - `evidence`: 申诉时提交的证据，推荐为 IPFS 文件地址
 - `info`: 公示信息
 - `reason`: 申诉该服务的原因
+- `role`：表示发起诉讼的人的身份，1-代表数据使用者，2-代表数据提供者
 
 申诉命令发出后，会通过 transfer 发出通知，通知给所有受诉方，任何一个账户应诉（包含通知之外的账户），案件均可以成立。
 
@@ -530,10 +534,10 @@ cleos transfer ${provider_account} ${contract_oracle} "1000.0000 BOS" "0,${servi
 ```
 
 **2. 申诉服务：**
-memo 说明：`"3,服务 ID,证据,公示信息,申诉原因"`
+memo 说明：`"3,服务 ID,证据,公示信息,申诉原因,角色"`
 
 ```
-cleos transfer ${initiator_account} ${contract_oracle} "200.0000 BOS" "3,${service_id},'evidence','info','reason'" -p ${initiator_account}    
+cleos transfer ${initiator_account} ${contract_oracle} "200.0000 BOS" "3,${service_id},'evidence','info','reason','${role}'" -p ${initiator_account}    
 ```
 
 **3. 注册仲裁员：**
