@@ -62,6 +62,44 @@ BOS 预言机的仲裁模型中会分成两个阶段：
 - `${contract_oracle}`： BOS预言机服务合约账户
 - `${provider_account}`： 数据提供方账户
 
+## 2.7 预言机全局参数配置
+
+在部署完 Oracle 合约以后，需要进行系统参数初始化。
+
+```
+cleos push action ${contract_oracle} setparameter '{"version":1,"parameters":{"core_symbol":"BOS","precision":4,"min_service_stake_limit":1000,"min_appeal_stake_limit":200,"min_reg_arbitrator_stake_limit":10000,"arbitration_correct_rate":60,"round_limit":3,"arbi_timeout_value":86400,"arbi_freeze_stake_duration":259200,"time_deadline":86400,"clear_data_time_length":10800,"max_data_size":256,"min_provider_limit":1,"max_provider_limit":100,"min_update_cycle":1,"max_update_cycle":8640000,"min_duration":1,"max_duration":8640000,"min_acceptance":1,"max_acceptance":100}}' -p ${contract_oracle} -s -j -d  > setconfig.json
+
+cleos multisig propose_trx setconfig bppermission.json setconfig.json  -p ${account}   
+
+cleos multisig approve ${account} setconfig '{"actor":"${account}","permission":"active"}' -p ${account}
+
+cleos multisig exec ${account} setconfig -p ${account}
+```
+
+参数说明：
+
+- version：整型，版本必须匹配参数顺序和参数属性数目，初始为 1
+- core_symbol：币种名称，默认为 BOS
+- precision：币种精度，如1.0000 BOS， 默认为 4
+- min_service_stake_limit：提供服务需要抵押的最少金额，默认为 1000
+- min_appeal_stake_limit：申诉者或应诉者需要抵押的基数 ，第 N 轮需要抵押金额为`2^(N-1)*min_appeal_stake_limit`，默认为 200
+- min_reg_arbitrator_stake_limit：申请仲裁员最少需要抵押的金额，默认为 10000
+- arbitration_correct_rate：备选仲裁员的仲裁正确率下限，默认为 60
+- round_limit：最大仲裁轮数，该轮结果为最终结果，默认为 3
+- arbi_timeout_value：仲裁超时时间，即仲裁案件超时时间、再次申诉超时时间、提供者或仲裁员响应超时时间、上传仲裁结果时间，单位秒，默认为 86400
+- arbi_freeze_stake_duration：仲裁过程中，申诉者提起申诉受理后，提供者押金被冻结的时长，单位秒，默认为 259200
+- time_deadline：使用者发送数据请求，等待数据的超时时间，超时后提供数据无法获取奖励，单位秒，默认为 86400
+- clear_data_time_length：数据表oracledata清理时间，单位秒，默认为 10800
+- max_data_size：所有action memo的最大长度，单位字节，默认为 256
+- min_provider_limit： 一个服务至少有多少提供者才能创建，默认为 1
+- max_provider_limit：一个服务至多不能超过多少提供者，默认为 100
+- min_update_cycle：数据最少更新周期，单位秒，默认为 1
+- max_update_cycle：数据最大更新周期，单位秒，默认为 8640000
+- min_duration：数据最少收集期限，单位秒，默认为 1
+- max_duration：数据最大收集期限，单位秒，默认为 8640000
+- min_acceptance：确定性数据可显示最少数据提供者数，如该值为5，必须有5个数据提供者在期限内同时提供相同数据，数据才会出现在oracledata表，默认为 1
+- max_acceptance：确定性数据服务最大可接受数据提供者数，默认为 100
+
 
 # 三、数据提供方相关操作
 
@@ -165,6 +203,16 @@ cleos get table ${contract_oracle} ${contract_oracle} dataservices
   "more": false
 }
 ```
+
+一个预言机服务状态`status`有以下几种：
+
+- `service_init`，初始化
+- `service_in`，正常可用
+- `service_cancel`，取消
+- `service_pause`，暂停
+- `service_freeze`，冻结
+- `service_emergency`，紧急
+- `service_pause_insufficient_providers`，由于提供者不足暂停
 
 **步骤2：加入 service_id 为1 的服务**
 
