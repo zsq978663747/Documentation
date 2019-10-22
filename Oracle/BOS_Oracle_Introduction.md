@@ -81,7 +81,43 @@ cleos multisig approve ${account} setconfig '{"actor":"${account}","permission":
 cleos multisig exec ${account} setconfig -p ${account}
 ```
 
+## 2.7 Oracle Global Parameter
 
+After the Oracle contract is deployed, system parameter initialization is required.
+
+```
+cleos push action ${contract_oracle} setparameter '{"version":1,"parameters":{"core_symbol":"BOS","precision":4,"min_service_stake_limit":1000,"min_appeal_stake_limit":200,"min_reg_arbitrator_stake_limit":10000,"arbitration_correct_rate":60,"round_limit":3,"arbi_timeout_value":86400,"arbi_freeze_stake_duration":259200,"time_deadline":86400,"clear_data_time_length":10800,"max_data_size":256,"min_provider_limit":1,"max_provider_limit":100,"min_update_cycle":1,"max_update_cycle":8640000,"min_duration":1,"max_duration":8640000,"min_acceptance":1,"max_acceptance":100}}' -p ${contract_oracle} -s -j -d  > setconfig.json
+
+cleos multisig propose_trx setconfig bppermission.json setconfig.json  -p ${account}   
+
+cleos multisig approve ${account} setconfig '{"actor":"${account}","permission":"active"}' -p ${account}
+
+cleos multisig exec ${account} setconfig -p ${account}
+```
+
+**Parameters:**
+
+- `version`: integer, the version must match the parameter order and the number of parameter attributes, initially 1
+- `core_symbol`: coin symbol, the default is BOS
+- `precision`: currency precision, e.g. 1.0000 BOS, the default is 4
+- `min_service_stake_limit`: the minimum amount of service required to provide a mortgage, the default is 1000
+- `min_appeal_stake_limit`: the base number of the claimant or respondent who needs to be mortgaged. The amount required for the Nth round is `2^(N-1)*min_appeal_stake_limit`, the default is 200
+- `min_reg_arbitrator_stake_limit`: the minimum amount of money required to apply for an arbitrator; the default is 10000.
+- `arbitration_correct_rate`: the lower limit of arbitration accuracy for the alternative arbitrator, the default is 60
+- `round_limit`: the maximum number of arbitration rounds, the result of this round is the final result, the default is 3
+- `arbi_timeout_value`: arbitration timeout period, that is, the timeout period of the arbitration case, the timeout period of the re-appeal, the timeout period of the provider or arbitrator response, the time of uploading the arbitration result, the unit second, the default is 86400
+- `arbi_freeze_stake_duration`: during the arbitration process, the length of time the provider deposit is frozen after the complainant has filed the appeal, in seconds, the default is 259200s
+- `time_deadline`: the user sends a data request, the duration for data to be timeout, we cannot claim rewards after providing the data; the unit is second, default is 86400.
+- `clear_data_time_length`: duration to clear table`oracledata`.he unit is second, the default is 10800
+- `max_data_size`: size of all action memo; the unit is byte, default is256
+- `min_provider_limit`: a service can be created by at least how many providers, the default is 1
+- `max_provider_limit`: a service can be created by at most how many providers, the default is 100
+- `min_update_cycle`: minimum update period of data. The unit is seconds, the default is 1
+- `max_update_cycle`: maximum data update cycle, the unit is second, the default is 8640000. 
+- `min_duration`: minimum data collection period, the unit is second, the default is 1.
+- `max_duration`: maximum data collection period, the unit is second, the defaults to 8640000
+- `min_acceptance`: deterministic data can show the minimum number of data providers; if the value is 5, there must be 5 data providers to provide the same data at the same time; the data will appear in the oracledata table, the default is 1
+- `max_acceptance`: deterministic data service maximum acceptable number of data providers, default is 100
 
 # III, Data Provider
 
