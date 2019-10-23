@@ -26,11 +26,11 @@ For more documentations, please refer to [docs](https://github.com/boscore/ibc_c
 
 ### BOS Oracle
 
-* [BOS Oracle Overview](https://github.com/boscore/bos.contracts/tree/master/contracts/bos.oralce/README.md)
-* [BOS Oracle 概览](https://github.com/boscore/bos.contracts/tree/master/contracts/bos.oralce/README_CN.md)
+* [BOS Oracle Overview](https://github.com/boscore/bos.contracts/blob/master/contracts/bos.oracle/README.md)
+* [BOS Oracle 概览](https://github.com/boscore/bos.contracts/blob/master/contracts/bos.oracle/README_CN.md)
 * [BOS Oracle Introduction](Oracle/BOS_Oracle_Introduction.md) 
 * [BOS Oracle 入门](Oracle/BOS_Oracle_入门.md)
 * [BOS Oracle Deployment](Oracle/BOS_Oracle_Deployment.md)
 * [BOS Oracle 部署文档](Oracle/BOS_Oracle_部署文档.md)
-* [Code](https://github.com/boscore/bos.contracts/tree/master/contracts/bos.oralce)
+* [Code](https://github.com/boscore/bos.contracts/tree/master/contracts/bos.oracle)
 
