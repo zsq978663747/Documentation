@@ -32,6 +32,6 @@ BOS.Oracle: Witness and Changes
 
 
 ## Code
-[Code](https://github.com/boscore/bos.contracts/tree/master/contracts/bos.oralce)
+[BOS Oracle Smart Contract](https://github.com/boscore/bos.contracts/tree/master/contracts/bos.oracle)
 
 
